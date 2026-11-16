@@ -1,0 +1,40 @@
+# Personal AI · 依赖清单（PAI-AUTH-MVP）
+#
+# 说明：
+# 1. 本文件列出的是**直接依赖**及其在本机 Python 3.12.10 实测通过的版本，
+#    不是 ``pip freeze`` 的全量转储（避免把 torch 的数十个传递依赖固化进来）。
+# 2. 版本号取自实际安装结果（importlib.metadata），均已通过认证实现与回归测试。
+# 3. 多格式文档解析的两项依赖（pypdf / python-docx）同时保留在
+#    requirements-parse.txt 中，此处不重复修改该文件。
+#
+# 安装：python -m pip install -r requirements.txt
+
+# ---- Web 框架与运行时 ----
+fastapi==0.141.1
+starlette==1.6.0
+uvicorn==0.52.4
+pydantic==2.13.5
+python-dotenv==1.2.3
+python-multipart==0.0.32
+
+# ---- 认证（PAI-AUTH-MVP 新增）----
+# Argon2id 密码哈希；bindings 为编译扩展（Windows 走 cp310-abi3 wheel）。
+argon2-cffi==25.1.0
+argon2-cffi-bindings==26.1.0
+
+# ---- 多模态（图片理解）----
+pillow==13.0.0
+openai==3.19.2
+
+# ---- 文档解析 ----
+pypdf==6.16.2
+python-docx==1.2.0
+
+# ---- RAG 检索（本地嵌入模型）----
+sentence-transformers==6.1.0
+torch==2.14.1
+numpy==2.5.4
+
+# ---- 测试 ----
+pytest==9.1.1
+httpx==0.28.1

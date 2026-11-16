@@ -1,0 +1,839 @@
+/* =========================================================
+   Personal AI · 登录 / 邀请码注册 界面样式（PAI-UI-LOGIN-R1）
+   ---------------------------------------------------------
+   设计语言与 app_ui/static/workbench.css 同源：
+   - 品牌色完全复用：--brand #2563EB、--violet #6D5BF6；
+   - 深色底直接取工作台侧栏的深海军蓝 #0B1628 / #0E1B30，
+     即「把工作台的侧栏扩展到整屏」，而不是另起一套配色；
+   - 圆角阶梯与工作台一致：8 / 10 / 14 / 18；
+   - 字体栈、缓动曲线、阴影口径与工作台一致。
+   仅由 /login 与 /register 加载，不影响 / 与 /workbench 与 /business-ui。
+   不引用任何外部资源（无 CDN、无远程字体、无图片文件）。
+   ========================================================= */
+
+:root {
+    /* ---- 品牌（与 workbench.css 逐值一致）---- */
+    --brand: #2563EB;
+    --brand-600: #1D4ED8;
+    --violet: #6D5BF6;
+    --cyan: #22D3EE;
+    --cyan-deep: #0EA5E9;
+
+    /* ---- 深色底（取自工作台侧栏）---- */
+    --navy-900: #080F1D;
+    --navy-800: #0B1628;
+    --navy-700: #0E1B30;
+    --navy-600: #132444;
+
+    /* ---- 文字（1/2 级与工作台侧栏同值）---- */
+    --text-1: #EAF1FB;
+    --text-2: #A7B6CC;
+    --text-3: #8B9CB3;
+
+    /* ---- 玻璃表面 ---- */
+    --glass: rgba(255, 255, 255, 0.048);
+    --glass-2: rgba(255, 255, 255, 0.076);
+    --line: rgba(255, 255, 255, 0.10);
+    --line-2: rgba(255, 255, 255, 0.17);
+
+    /* ---- 圆角（与工作台同阶梯）---- */
+    --r-sm: 8px;
+    --r-md: 10px;
+    --r-lg: 14px;
+    --r-xl: 18px;
+
+    /* ---- 阴影 ---- */
+    --sh-card: 0 28px 64px -30px rgba(2, 8, 23, 0.9),
+        0 2px 10px rgba(2, 8, 23, 0.45);
+    --sh-btn: 0 10px 24px -12px rgba(37, 99, 235, 0.9);
+
+    --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--navy-900);
+    color: var(--text-1);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 2px solid #60A5FA;
+    outline-offset: 2px;
+}
+
+.skip {
+    position: absolute;
+    top: -56px;
+    left: 18px;
+    z-index: 90;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: var(--r-md);
+    background: #fff;
+    color: var(--navy-900);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: top 0.18s var(--ease);
+}
+
+.skip:focus {
+    top: 14px;
+}
+
+/* =========================================================
+   1. 背景层：柔和光效 + 极淡网格（不使用赛博朋克霓虹/扫描线）
+   ========================================================= */
+
+.bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+        radial-gradient(120% 90% at 50% -10%, #10233F 0%, transparent 58%),
+        linear-gradient(180deg, var(--navy-900) 0%, #060C17 100%);
+}
+
+.bg__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(8px);
+    will-change: transform;
+}
+
+.bg__glow--blue {
+    width: 920px;
+    height: 920px;
+    left: -300px;
+    top: -360px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.40) 0%, rgba(37, 99, 235, 0) 64%);
+    animation: drift 26s var(--ease) infinite alternate;
+}
+
+.bg__glow--violet {
+    width: 620px;
+    height: 620px;
+    left: 34%;
+    top: -240px;
+    background: radial-gradient(circle, rgba(109, 91, 246, 0.22) 0%, rgba(109, 91, 246, 0) 66%);
+}
+
+.bg__glow--cyan {
+    width: 780px;
+    height: 780px;
+    right: -280px;
+    bottom: -320px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.18) 0%, rgba(34, 211, 238, 0) 64%);
+    animation: drift 32s var(--ease) infinite alternate-reverse;
+}
+
+.bg__grid {
+    position: absolute;
+    inset: -1px;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.052) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.052) 1px, transparent 1px);
+    background-size: 68px 68px;
+    -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 34%, #000 0%, transparent 76%);
+    mask-image: radial-gradient(ellipse 78% 62% at 50% 34%, #000 0%, transparent 76%);
+}
+
+@keyframes drift {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(36px, 26px, 0) scale(1.06);
+    }
+}
+
+/* =========================================================
+   2. 布局：桌面双栏（品牌叙事 + 认证卡片），移动端单栏
+   ========================================================= */
+
+.shell {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+    align-items: center;
+    gap: 72px;
+    width: 100%;
+    max-width: 1140px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0 auto;
+    padding: 56px 32px;
+}
+
+/* ---- 左栏：品牌 ---- */
+
+.pitch {
+    max-width: 460px;
+    animation: rise 0.62s var(--ease) both;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    border-radius: var(--r-md);
+}
+
+/* 品牌标记：与工作台 .brand__mark 同一形状与同一渐变 */
+.brand__mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(142deg, #3B82F6 0%, #6D5BF6 100%);
+    box-shadow: 0 8px 20px -10px rgba(59, 130, 246, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.brand__mark svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.brand__text strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.brand__text small {
+    display: block;
+    margin-top: 1px;
+    color: var(--text-3);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+}
+
+.pitch h1 {
+    margin: 0 0 18px;
+    font-size: 34px;
+    line-height: 1.32;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.pitch h1 em {
+    font-style: normal;
+    background: linear-gradient(96deg, #93C5FD 0%, #67E8F9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.pitch__desc {
+    margin: 0 0 30px;
+    max-width: 420px;
+    color: var(--text-2);
+    font-size: 14px;
+    line-height: 1.78;
+}
+
+.points {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    color: var(--text-2);
+    font-size: 13px;
+}
+
+.points .ico {
+    flex: none;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    color: var(--cyan);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pitch__meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 34px 0 0;
+    color: var(--text-3);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+}
+
+.pitch__meta .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.16);
+}
+
+/* =========================================================
+   3. 半透明卡片
+   ========================================================= */
+
+.panel {
+    position: relative;
+    width: 100%;
+    max-width: 424px;
+    padding: 34px 34px 26px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.062) 0%, rgba(255, 255, 255, 0.028) 100%);
+    -webkit-backdrop-filter: blur(20px) saturate(122%);
+    backdrop-filter: blur(20px) saturate(122%);
+    box-shadow: var(--sh-card), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    animation: rise 0.62s var(--ease) 0.08s both;
+}
+
+/* 卡片顶部一道极细的品牌高光，收边用 */
+.panel::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 18%;
+    right: 18%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(147, 197, 253, 0.75), transparent);
+}
+
+.panel__head {
+    margin-bottom: 22px;
+}
+
+.panel__head h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.panel__head p {
+    margin: 0;
+    color: var(--text-3);
+    font-size: 13px;
+}
+
+/* =========================================================
+   4. 状态条（认证后端状态 / 表单级错误）
+   ========================================================= */
+
+.status {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 12.5px;
+    line-height: 1.6;
+    animation: fade 0.24s var(--ease) both;
+}
+
+.status[hidden] {
+    display: none;
+}
+
+.status .ico {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.status strong {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.status span {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-2);
+}
+
+.status[data-tone="warn"] {
+    border-color: rgba(251, 191, 36, 0.34);
+    background: rgba(251, 191, 36, 0.09);
+    color: #FCD34D;
+}
+
+.status[data-tone="error"] {
+    border-color: rgba(248, 113, 113, 0.36);
+    background: rgba(248, 113, 113, 0.10);
+    color: #FCA5A5;
+}
+
+.status[data-tone="info"] {
+    border-color: rgba(96, 165, 250, 0.32);
+    background: rgba(96, 165, 250, 0.09);
+    color: #93C5FD;
+}
+
+/* =========================================================
+   5. 表单字段
+   ========================================================= */
+
+.form {
+    display: grid;
+    gap: 15px;
+}
+
+.field {
+    display: grid;
+    gap: 7px;
+}
+
+.field > label {
+    color: var(--text-2);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.field__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    padding: 0 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: rgba(255, 255, 255, 0.038);
+    transition: border-color 0.16s var(--ease), background 0.16s var(--ease),
+        box-shadow 0.16s var(--ease);
+}
+
+.field__box:hover {
+    border-color: var(--line-2);
+    background: rgba(255, 255, 255, 0.055);
+}
+
+.field__box:focus-within {
+    border-color: rgba(96, 165, 250, 0.85);
+    background: rgba(255, 255, 255, 0.062);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}
+
+.field__ico {
+    flex: none;
+    width: 17px;
+    height: 17px;
+    margin-right: 9px;
+    color: var(--text-3);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: color 0.16s var(--ease);
+}
+
+.field__box:focus-within .field__ico {
+    color: #93C5FD;
+}
+
+.field input {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text-1);
+    font: inherit;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+}
+
+.field input::placeholder {
+    color: #7C8CA3;
+}
+
+.field input:focus {
+    outline: none;
+}
+
+/* 浏览器自动填充时保持深色底，避免白块破坏风格 */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--text-1);
+    -webkit-box-shadow: 0 0 0 1000px #14243C inset;
+    caret-color: var(--text-1);
+}
+
+/* 密码显示 / 隐藏 */
+.reveal {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    margin-right: -4px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--r-sm);
+    background: transparent;
+    color: var(--text-3);
+    cursor: pointer;
+    transition: color 0.16s var(--ease), background 0.16s var(--ease);
+}
+
+.reveal:hover {
+    color: var(--text-1);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.reveal svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* 眼睛图标互斥显示：默认「睁眼」= 显示密码 */
+.reveal .ico-eye-off {
+    display: none;
+}
+
+.reveal[aria-pressed="true"] .ico-eye {
+    display: none;
+}
+
+.reveal[aria-pressed="true"] .ico-eye-off {
+    display: block;
+}
+
+/* 字段级错误 */
+.field__err {
+    margin: 0;
+    color: #FCA5A5;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.field__err[hidden] {
+    display: none;
+}
+
+.field.is-invalid .field__box {
+    border-color: rgba(248, 113, 113, 0.55);
+    background: rgba(248, 113, 113, 0.06);
+}
+
+.field.is-invalid .field__ico {
+    color: #FCA5A5;
+}
+
+/* =========================================================
+   6. 主按钮 / 次按钮 / 加载态
+   ========================================================= */
+
+.btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    height: 48px;
+    margin-top: 4px;
+    padding: 0 18px;
+    border: 1px solid transparent;
+    border-radius: var(--r-md);
+    font: inherit;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: transform 0.16s var(--ease), box-shadow 0.16s var(--ease),
+        background 0.16s var(--ease), border-color 0.16s var(--ease);
+}
+
+.btn--primary {
+    background: linear-gradient(118deg, var(--brand) 0%, var(--brand-600) 100%);
+    color: #fff;
+    box-shadow: var(--sh-btn), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.btn--primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px -12px rgba(37, 99, 235, 1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.btn--primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.72;
+}
+
+/* 加载态：按钮内文字与转圈并排，字号不跳动 */
+.spinner {
+    display: none;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.72s linear infinite;
+}
+
+.btn.is-loading .spinner {
+    display: block;
+}
+
+.btn.is-loading {
+    opacity: 0.88;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================================================
+   7. 卡片底部：切换入口 + 说明
+   ========================================================= */
+
+.panel__foot {
+    margin: 20px 0 0;
+    color: var(--text-3);
+    font-size: 13px;
+    text-align: center;
+}
+
+.panel__foot a {
+    color: #93C5FD;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.16s var(--ease), color 0.16s var(--ease);
+}
+
+.panel__foot a:hover {
+    color: #BFDBFE;
+    border-bottom-color: rgba(191, 219, 254, 0.6);
+}
+
+.notice {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* 只作用于卡片底部的「标题行」；正文里的行内 <strong> 不受影响，
+   否则 flex 会让正文里的强调词独占一行并带上圆点。 */
+.notice > strong {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #FCD34D;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.notice > strong::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #FBBF24;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.16);
+}
+
+.notice p {
+    margin: 7px 0 0;
+    color: var(--text-3);
+    font-size: 11.5px;
+    line-height: 1.72;
+}
+
+.notice code {
+    padding: 1px 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-2);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 11px;
+}
+
+/* =========================================================
+   8. 入场动效
+   ========================================================= */
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =========================================================
+   9. 响应式：<=960 单栏，<=560 紧凑
+   ========================================================= */
+
+@media (max-width: 960px) {
+    .shell {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 34px;
+        max-width: 520px;
+        padding: 40px 22px 48px;
+        align-content: center;
+    }
+
+    .pitch {
+        max-width: none;
+    }
+
+    .brand {
+        margin-bottom: 22px;
+    }
+
+    .pitch h1 {
+        font-size: 27px;
+        margin-bottom: 14px;
+    }
+
+    .pitch__desc {
+        margin-bottom: 22px;
+        font-size: 13.5px;
+    }
+
+    .points {
+        display: none;
+    }
+
+    .pitch__meta {
+        margin-top: 20px;
+    }
+
+    .panel {
+        max-width: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .shell {
+        padding: 28px 16px 36px;
+        gap: 26px;
+    }
+
+    .pitch h1 {
+        font-size: 23px;
+    }
+
+    .pitch__desc {
+        font-size: 13px;
+        line-height: 1.72;
+    }
+
+    .panel {
+        padding: 26px 20px 20px;
+        border-radius: var(--r-lg);
+    }
+
+    .panel__head h2 {
+        font-size: 20px;
+    }
+
+    /* 触控目标 >= 44px */
+    .field__box {
+        height: 48px;
+    }
+
+    .reveal {
+        width: 40px;
+        height: 40px;
+        margin-right: -6px;
+    }
+
+    .btn {
+        height: 50px;
+    }
+}
+
+/* 减少动效偏好 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+    }
+}

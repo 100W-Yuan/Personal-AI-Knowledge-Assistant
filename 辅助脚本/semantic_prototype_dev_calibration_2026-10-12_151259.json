@@ -1,0 +1,4594 @@
+{
+  "run_timestamp": "2026-10-12_151259",
+  "backend": "ollama",
+  "model": "qwen3-embedding:0.6b",
+  "dim": 1024,
+  "dev_case_count": 20,
+  "test_touched": false,
+  "thresholds": [
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55
+  ],
+  "latency": {
+    "samples": 60,
+    "p50_ms": 66.3,
+    "p95_ms": 135.4,
+    "method": "nearest-rank",
+    "samples_ms": [
+      60.9,
+      42.3,
+      44.6,
+      63.2,
+      50.6,
+      136.5,
+      129.0,
+      138.7,
+      139.9,
+      124.9,
+      126.6,
+      135.4,
+      83.6,
+      75.4,
+      77.5,
+      58.6,
+      61.2,
+      56.5,
+      83.9,
+      68.2,
+      80.7,
+      67.2,
+      65.6,
+      70.1,
+      53.3,
+      74.5,
+      54.1,
+      51.9,
+      52.9,
+      53.8,
+      72.7,
+      81.3,
+      68.6,
+      65.0,
+      59.4,
+      64.5,
+      62.3,
+      77.0,
+      72.3,
+      56.2,
+      64.3,
+      69.3,
+      55.9,
+      73.3,
+      80.7,
+      58.5,
+      77.2,
+      67.1,
+      82.8,
+      70.8,
+      52.5,
+      62.6,
+      62.6,
+      79.8,
+      66.3,
+      65.1,
+      61.3,
+      54.5,
+      70.3,
+      52.6
+    ]
+  },
+  "similarity_matrix": {
+    "E01": {
+      "major": 0.475,
+      "degree": 0.4901,
+      "school": 0.4336,
+      "career_goal": 0.426,
+      "learning_goal": 0.4179,
+      "side_goal": 0.3577,
+      "preference": 0.3145,
+      "language_preference": 0.3907,
+      "project": 0.2752,
+      "skill": 0.4103,
+      "location": 0.3643,
+      "name": 0.3643
+    },
+    "E02": {
+      "major": 0.5229,
+      "degree": 0.5332,
+      "school": 0.4838,
+      "career_goal": 0.4135,
+      "learning_goal": 0.5027,
+      "side_goal": 0.3923,
+      "preference": 0.3342,
+      "language_preference": 0.4156,
+      "project": 0.3306,
+      "skill": 0.4523,
+      "location": 0.3854,
+      "name": 0.3726
+    },
+    "E03": {
+      "major": 0.4518,
+      "degree": 0.5681,
+      "school": 0.3975,
+      "career_goal": 0.3887,
+      "learning_goal": 0.463,
+      "side_goal": 0.3781,
+      "preference": 0.3214,
+      "language_preference": 0.3935,
+      "project": 0.3847,
+      "skill": 0.4388,
+      "location": 0.4042,
+      "name": 0.3663
+    },
+    "E04": {
+      "major": 0.4841,
+      "degree": 0.6027,
+      "school": 0.5041,
+      "career_goal": 0.347,
+      "learning_goal": 0.476,
+      "side_goal": 0.2993,
+      "preference": 0.3225,
+      "language_preference": 0.3422,
+      "project": 0.2662,
+      "skill": 0.4281,
+      "location": 0.406,
+      "name": 0.3895
+    },
+    "E05": {
+      "major": 0.4867,
+      "degree": 0.5586,
+      "school": 0.5481,
+      "career_goal": 0.3365,
+      "learning_goal": 0.4306,
+      "side_goal": 0.3247,
+      "preference": 0.3062,
+      "language_preference": 0.3737,
+      "project": 0.3113,
+      "skill": 0.3581,
+      "location": 0.5051,
+      "name": 0.3692
+    },
+    "E06": {
+      "major": 0.3906,
+      "degree": 0.4929,
+      "school": 0.4601,
+      "career_goal": 0.2536,
+      "learning_goal": 0.3551,
+      "side_goal": 0.2996,
+      "preference": 0.268,
+      "language_preference": 0.3202,
+      "project": 0.3333,
+      "skill": 0.3513,
+      "location": 0.4883,
+      "name": 0.3466
+    },
+    "E07": {
+      "major": 0.4095,
+      "degree": 0.4193,
+      "school": 0.3442,
+      "career_goal": 0.3774,
+      "learning_goal": 0.3994,
+      "side_goal": 0.3744,
+      "preference": 0.3045,
+      "language_preference": 0.3692,
+      "project": 0.2852,
+      "skill": 0.3653,
+      "location": 0.3735,
+      "name": 0.3132
+    },
+    "E08": {
+      "major": 0.4309,
+      "degree": 0.4718,
+      "school": 0.4211,
+      "career_goal": 0.3772,
+      "learning_goal": 0.4176,
+      "side_goal": 0.3998,
+      "preference": 0.3208,
+      "language_preference": 0.3647,
+      "project": 0.2801,
+      "skill": 0.4085,
+      "location": 0.374,
+      "name": 0.334
+    },
+    "E09": {
+      "major": 0.4438,
+      "degree": 0.4292,
+      "school": 0.3996,
+      "career_goal": 0.4695,
+      "learning_goal": 0.45,
+      "side_goal": 0.4312,
+      "preference": 0.3409,
+      "language_preference": 0.4239,
+      "project": 0.2757,
+      "skill": 0.3982,
+      "location": 0.4217,
+      "name": 0.3769
+    },
+    "E10": {
+      "major": 0.3526,
+      "degree": 0.342,
+      "school": 0.2989,
+      "career_goal": 0.336,
+      "learning_goal": 0.3851,
+      "side_goal": 0.4126,
+      "preference": 0.3414,
+      "language_preference": 0.4264,
+      "project": 0.332,
+      "skill": 0.3834,
+      "location": 0.3471,
+      "name": 0.3633
+    },
+    "E11": {
+      "major": 0.423,
+      "degree": 0.3846,
+      "school": 0.3882,
+      "career_goal": 0.3976,
+      "learning_goal": 0.44,
+      "side_goal": 0.46,
+      "preference": 0.3619,
+      "language_preference": 0.4703,
+      "project": 0.3467,
+      "skill": 0.3781,
+      "location": 0.3984,
+      "name": 0.3435
+    },
+    "E12": {
+      "major": 0.4074,
+      "degree": 0.4905,
+      "school": 0.402,
+      "career_goal": 0.3659,
+      "learning_goal": 0.5026,
+      "side_goal": 0.4876,
+      "preference": 0.3344,
+      "language_preference": 0.3849,
+      "project": 0.3495,
+      "skill": 0.4457,
+      "location": 0.3644,
+      "name": 0.3633
+    },
+    "E13": {
+      "major": 0.3071,
+      "degree": 0.3046,
+      "school": 0.2826,
+      "career_goal": 0.2601,
+      "learning_goal": 0.328,
+      "side_goal": 0.3392,
+      "preference": 0.4952,
+      "language_preference": 0.4629,
+      "project": 0.2434,
+      "skill": 0.3379,
+      "location": 0.2954,
+      "name": 0.3148
+    },
+    "E14": {
+      "major": 0.3564,
+      "degree": 0.3088,
+      "school": 0.2683,
+      "career_goal": 0.3114,
+      "learning_goal": 0.3521,
+      "side_goal": 0.3737,
+      "preference": 0.3838,
+      "language_preference": 0.4053,
+      "project": 0.2548,
+      "skill": 0.3476,
+      "location": 0.3638,
+      "name": 0.3155
+    },
+    "E15": {
+      "major": 0.2796,
+      "degree": 0.2902,
+      "school": 0.2765,
+      "career_goal": 0.2368,
+      "learning_goal": 0.3035,
+      "side_goal": 0.3035,
+      "preference": 0.6706,
+      "language_preference": 0.4326,
+      "project": 0.1949,
+      "skill": 0.3263,
+      "location": 0.2548,
+      "name": 0.253
+    },
+    "E16": {
+      "major": 0.3959,
+      "degree": 0.4018,
+      "school": 0.3557,
+      "career_goal": 0.3251,
+      "learning_goal": 0.4222,
+      "side_goal": 0.3427,
+      "preference": 0.3854,
+      "language_preference": 0.8786,
+      "project": 0.3035,
+      "skill": 0.3826,
+      "location": 0.3895,
+      "name": 0.3788
+    },
+    "E17": {
+      "major": 0.3808,
+      "degree": 0.321,
+      "school": 0.2866,
+      "career_goal": 0.3398,
+      "learning_goal": 0.3505,
+      "side_goal": 0.3818,
+      "preference": 0.3706,
+      "language_preference": 0.6122,
+      "project": 0.3216,
+      "skill": 0.4411,
+      "location": 0.3371,
+      "name": 0.3791
+    },
+    "E18": {
+      "major": 0.4623,
+      "degree": 0.4493,
+      "school": 0.3896,
+      "career_goal": 0.4737,
+      "learning_goal": 0.454,
+      "side_goal": 0.4937,
+      "preference": 0.3673,
+      "language_preference": 0.4064,
+      "project": 0.436,
+      "skill": 0.4677,
+      "location": 0.4367,
+      "name": 0.4081
+    },
+    "E19": {
+      "major": 0.3743,
+      "degree": 0.2909,
+      "school": 0.2814,
+      "career_goal": 0.4002,
+      "learning_goal": 0.463,
+      "side_goal": 0.4164,
+      "preference": 0.3438,
+      "language_preference": 0.335,
+      "project": 0.2807,
+      "skill": 0.4292,
+      "location": 0.3364,
+      "name": 0.3285
+    },
+    "E20": {
+      "major": 0.5152,
+      "degree": 0.3699,
+      "school": 0.4261,
+      "career_goal": 0.4844,
+      "learning_goal": 0.5468,
+      "side_goal": 0.4682,
+      "preference": 0.4083,
+      "language_preference": 0.4556,
+      "project": 0.3292,
+      "skill": 0.4951,
+      "location": 0.3548,
+      "name": 0.4231
+    }
+  },
+  "similarity_distribution": {
+    "major": {
+      "min": 0.28,
+      "median": 0.416,
+      "max": 0.523,
+      "category": "profile"
+    },
+    "degree": {
+      "min": 0.29,
+      "median": 0.424,
+      "max": 0.603,
+      "category": "profile"
+    },
+    "school": {
+      "min": 0.268,
+      "median": 0.394,
+      "max": 0.548,
+      "category": "profile"
+    },
+    "career_goal": {
+      "min": 0.237,
+      "median": 0.372,
+      "max": 0.484,
+      "category": "goal"
+    },
+    "learning_goal": {
+      "min": 0.304,
+      "median": 0.426,
+      "max": 0.547,
+      "category": "goal"
+    },
+    "side_goal": {
+      "min": 0.299,
+      "median": 0.38,
+      "max": 0.494,
+      "category": "goal"
+    },
+    "preference": {
+      "min": 0.268,
+      "median": 0.341,
+      "max": 0.671,
+      "category": "preference"
+    },
+    "language_preference": {
+      "min": 0.32,
+      "median": 0.406,
+      "max": 0.879,
+      "category": "preference"
+    },
+    "project": {
+      "min": 0.195,
+      "median": 0.307,
+      "max": 0.436,
+      "category": "project"
+    },
+    "skill": {
+      "min": 0.326,
+      "median": 0.403,
+      "max": 0.495,
+      "category": "skill"
+    },
+    "location": {
+      "min": 0.255,
+      "median": 0.374,
+      "max": 0.505,
+      "category": "profile"
+    },
+    "name": {
+      "min": 0.253,
+      "median": 0.364,
+      "max": 0.423,
+      "category": "identity"
+    }
+  },
+  "results": {
+    "A": {
+      "0.35": {
+        "strategy": "A",
+        "threshold": 0.35,
+        "recall": "15/20",
+        "recall_pct": 75.0,
+        "precision": "24/58",
+        "precision_pct": 41.38,
+        "mrr": 0.5583,
+        "mrr_den": 20,
+        "miss_count": 5,
+        "miss_cases": [
+          "E07",
+          "E08",
+          "E10",
+          "E11",
+          "E18"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4336,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.5027,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4193,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4095,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.3994,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "degree",
+              "major"
+            ]
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4718,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4309,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4211,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "degree",
+              "major",
+              "school"
+            ]
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.45,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4438,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "major"
+            ]
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4264,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4126,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.3851,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4703,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.44,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "language_preference",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "degree",
+                "cos": 0.4905,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4053,
+                "rank": 1
+              },
+              {
+                "key": "preference",
+                "cos": 0.3838,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.3737,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4326,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.4222,
+                "rank": 2
+              },
+              {
+                "key": "degree",
+                "cos": 0.4018,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "learning_goal",
+              "degree"
+            ]
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4411,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.3818,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "skill",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.4937,
+                "rank": 1
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4737,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4677,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": [
+              "side_goal",
+              "career_goal",
+              "skill"
+            ]
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4292,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4164,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5152,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "major"
+            ]
+          }
+        ]
+      },
+      "0.4": {
+        "strategy": "A",
+        "threshold": 0.4,
+        "recall": "14/20",
+        "recall_pct": 70.0,
+        "precision": "21/53",
+        "precision_pct": 39.62,
+        "mrr": 0.5333,
+        "mrr_den": 20,
+        "miss_count": 6,
+        "miss_cases": [
+          "E07",
+          "E08",
+          "E10",
+          "E11",
+          "E14",
+          "E18"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4336,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.5027,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4193,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4095,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "degree",
+              "major"
+            ]
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4718,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4309,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4211,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "degree",
+              "major",
+              "school"
+            ]
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.45,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4438,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "major"
+            ]
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4264,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4126,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4703,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.44,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "language_preference",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "degree",
+                "cos": 0.4905,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4053,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4326,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.4222,
+                "rank": 2
+              },
+              {
+                "key": "degree",
+                "cos": 0.4018,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "learning_goal",
+              "degree"
+            ]
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4411,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "skill"
+            ]
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.4937,
+                "rank": 1
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4737,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4677,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": [
+              "side_goal",
+              "career_goal",
+              "skill"
+            ]
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4292,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4164,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5152,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "major"
+            ]
+          }
+        ]
+      },
+      "0.45": {
+        "strategy": "A",
+        "threshold": 0.45,
+        "recall": "13/20",
+        "recall_pct": 65.0,
+        "precision": "17/36",
+        "precision_pct": 47.22,
+        "mrr": 0.5083,
+        "mrr_den": 20,
+        "miss_count": 7,
+        "miss_cases": [
+          "E07",
+          "E08",
+          "E10",
+          "E11",
+          "E14",
+          "E18",
+          "E19"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.5027,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4718,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4703,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "language_preference",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "degree",
+                "cos": 0.4905,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.4937,
+                "rank": 1
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4737,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4677,
+                "rank": 3
+              }
+            ],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": [
+              "side_goal",
+              "career_goal",
+              "skill"
+            ]
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5152,
+                "rank": 2
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "major"
+            ]
+          }
+        ]
+      },
+      "0.5": {
+        "strategy": "A",
+        "threshold": 0.5,
+        "recall": "8/20",
+        "recall_pct": 40.0,
+        "precision": "9/15",
+        "precision_pct": 60.0,
+        "mrr": 0.35,
+        "mrr_den": 20,
+        "miss_count": 12,
+        "miss_cases": [
+          "E01",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E13",
+          "E14",
+          "E18",
+          "E19",
+          "E20"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.5027,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "learning_goal"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5152,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": [
+              "major"
+            ]
+          }
+        ]
+      },
+      "0.55": {
+        "strategy": "A",
+        "threshold": 0.55,
+        "recall": "5/20",
+        "recall_pct": 25.0,
+        "precision": "5/6",
+        "precision_pct": 83.33,
+        "mrr": 0.25,
+        "mrr_den": 20,
+        "miss_count": 15,
+        "miss_cases": [
+          "E01",
+          "E02",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E18",
+          "E19",
+          "E20"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "learning_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          }
+        ]
+      }
+    },
+    "B": {
+      "0.35": {
+        "strategy": "B",
+        "threshold": 0.35,
+        "recall": "19/20",
+        "recall_pct": 95.0,
+        "precision": "32/52",
+        "precision_pct": 61.54,
+        "mrr": 0.675,
+        "mrr_den": 20,
+        "miss_count": 1,
+        "miss_cases": [
+          "E10"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4336,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4838,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.4042,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.3994,
+                "rank": 1
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.3774,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.3744,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.4176,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.3998,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.3772,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.45,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4312,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.4126,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.3851,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.44,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.3976,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.3659,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4053,
+                "rank": 1
+              },
+              {
+                "key": "preference",
+                "cos": 0.3838,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4326,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              },
+              {
+                "key": "preference",
+                "cos": 0.3854,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "preference"
+            ]
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              },
+              {
+                "key": "preference",
+                "cos": 0.3706,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "preference"
+            ]
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "project",
+                "cos": 0.436,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4292,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4164,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4844,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "career_goal"
+            ]
+          }
+        ]
+      },
+      "0.4": {
+        "strategy": "B",
+        "threshold": 0.4,
+        "recall": "15/20",
+        "recall_pct": 75.0,
+        "precision": "24/41",
+        "precision_pct": 58.54,
+        "mrr": 0.5917,
+        "mrr_den": 20,
+        "miss_count": 5,
+        "miss_cases": [
+          "E07",
+          "E08",
+          "E10",
+          "E11",
+          "E14"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4336,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4838,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.4042,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.4176,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.45,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4312,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.4126,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 1
+              },
+              {
+                "key": "learning_goal",
+                "cos": 0.44,
+                "rank": 2
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.4053,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4326,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "project",
+                "cos": 0.436,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4292,
+                "rank": 2
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4164,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4844,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "career_goal"
+            ]
+          }
+        ]
+      },
+      "0.45": {
+        "strategy": "B",
+        "threshold": 0.45,
+        "recall": "13/20",
+        "recall_pct": 65.0,
+        "precision": "17/29",
+        "precision_pct": 58.62,
+        "mrr": 0.5167,
+        "mrr_den": 20,
+        "miss_count": 7,
+        "miss_cases": [
+          "E07",
+          "E08",
+          "E10",
+          "E11",
+          "E14",
+          "E18",
+          "E19"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4901,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.475,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4838,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "school"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.4518,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              },
+              {
+                "key": "major",
+                "cos": 0.4841,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school",
+              "major"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.4929,
+                "rank": 1
+              },
+              {
+                "key": "location",
+                "cos": 0.4883,
+                "rank": 2
+              },
+              {
+                "key": "school",
+                "cos": 0.4601,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "location"
+            ]
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "career_goal",
+                "cos": 0.4695,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "side_goal",
+                "cos": 0.46,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              },
+              {
+                "key": "side_goal",
+                "cos": 0.4876,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "side_goal"
+            ]
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.4952,
+                "rank": 1
+              },
+              {
+                "key": "language_preference",
+                "cos": 0.4629,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "language_preference"
+            ]
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.463,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              },
+              {
+                "key": "skill",
+                "cos": 0.4951,
+                "rank": 2
+              },
+              {
+                "key": "career_goal",
+                "cos": 0.4844,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "career_goal"
+            ]
+          }
+        ]
+      },
+      "0.5": {
+        "strategy": "B",
+        "threshold": 0.5,
+        "recall": "8/20",
+        "recall_pct": 40.0,
+        "precision": "9/13",
+        "precision_pct": 69.23,
+        "mrr": 0.35,
+        "mrr_den": 20,
+        "miss_count": 12,
+        "miss_cases": [
+          "E01",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E13",
+          "E14",
+          "E18",
+          "E19",
+          "E20"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5332,
+                "rank": 1
+              },
+              {
+                "key": "major",
+                "cos": 0.5229,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5041,
+                "rank": 2
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "school"
+            ]
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              },
+              {
+                "key": "school",
+                "cos": 0.5481,
+                "rank": 2
+              },
+              {
+                "key": "location",
+                "cos": 0.5051,
+                "rank": 3
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": [
+              "degree",
+              "location"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "hit",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5026,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "learning_goal",
+                "cos": 0.5468,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          }
+        ]
+      },
+      "0.55": {
+        "strategy": "B",
+        "threshold": 0.55,
+        "recall": "5/20",
+        "recall_pct": 25.0,
+        "precision": "5/6",
+        "precision_pct": 83.33,
+        "mrr": 0.25,
+        "mrr_den": 20,
+        "miss_count": 15,
+        "miss_cases": [
+          "E01",
+          "E02",
+          "E05",
+          "E06",
+          "E07",
+          "E08",
+          "E09",
+          "E10",
+          "E11",
+          "E12",
+          "E13",
+          "E14",
+          "E18",
+          "E19",
+          "E20"
+        ],
+        "not_applicable": 0,
+        "detail": [
+          {
+            "id": "E01",
+            "q": "我是什么专业的？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E02",
+            "q": "我学的是什么方向？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "major"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E03",
+            "q": "我现在在读什么？",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5681,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E04",
+            "q": "我的学历是什么",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.6027,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E05",
+            "q": "我上的哪所大学",
+            "purpose": "R",
+            "status": "miss",
+            "top": [
+              {
+                "key": "degree",
+                "cos": 0.5586,
+                "rank": 1
+              }
+            ],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": [
+              "degree"
+            ]
+          },
+          {
+            "id": "E06",
+            "q": "我在哪里上学？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "school"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E07",
+            "q": "我以后想从事什么工作？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E08",
+            "q": "毕业后我想做什么？",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E09",
+            "q": "我的职业规划是什么",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E10",
+            "q": "我有什么长期目标",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E11",
+            "q": "我想往哪个方向发展",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "career_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E12",
+            "q": "帮我规划未来的学习安排",
+            "purpose": "RANK",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "learning_goal"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E13",
+            "q": "我平常喜欢喝点啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E14",
+            "q": "我的日常爱好是啥",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "preference"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E15",
+            "q": "我喝咖啡有什么讲究",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "preference",
+                "cos": 0.6706,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E16",
+            "q": "我用中文交流更习惯",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.8786,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E17",
+            "q": "我喜欢说什么语言",
+            "purpose": "R",
+            "status": "hit",
+            "top": [
+              {
+                "key": "language_preference",
+                "cos": 0.6122,
+                "rank": 1
+              }
+            ],
+            "missing": [],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E18",
+            "q": "我最近在忙什么项目",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "project"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E19",
+            "q": "我有什么拿得出手的技能",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          },
+          {
+            "id": "E20",
+            "q": "我会点啥技术",
+            "purpose": "R",
+            "status": "miss",
+            "top": [],
+            "missing": [
+              "skill"
+            ],
+            "forbidden_hit": []
+          }
+        ]
+      }
+    }
+  },
+  "failures": [],
+  "timeouts": [],
+  "incomplete": []
+}

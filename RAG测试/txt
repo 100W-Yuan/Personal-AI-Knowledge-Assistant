@@ -1,0 +1,2 @@
+﻿我的AI Agent项目目前已经实现了Tool Calling、Task Loop和Long Term Memory。
+下一步正在学习RAG，包括文档加载、文本切分、Embedding、VectorStore和Retriever。

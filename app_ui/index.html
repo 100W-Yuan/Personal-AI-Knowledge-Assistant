@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 AI</title>
+
+    <link rel="stylesheet" href="/app-ui/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <span>我的 AI</span>
+        <button
+            type="button"
+            class="image-button"
+            id="new-conversation-button"
+            style="float: right; font-size: 13px; padding: 6px 12px;"
+            title="开始一个新会话，旧会话消息仍保留">
+            新建对话
+        </button>
+    </div>
+
+    <div class="messages" id="messages">
+        <div class="message">
+            <div class="assistant-content">
+                AI：你好，我是你的 AI Agent。
+            </div>
+        </div>
+    </div>
+
+    <div class="input-area">
+
+        <div id="preview-area" class="preview-area">
+            <img id="preview-image" class="preview-image" alt="图片预览">
+
+            <div class="preview-info">
+                <div>已选择图片</div>
+                <div id="preview-name"></div>
+            </div>
+
+            <button
+                type="button"
+                class="remove-image-button"
+                onclick="removeImage()">
+                移除
+            </button>
+        </div>
+
+        <div class="composer">
+
+            <input
+                id="image-file"
+                type="file"
+                accept="image/png,image/jpeg"
+                onchange="handleImageSelect(event)">
+
+            <button
+                type="button"
+                class="image-button"
+                id="image-button"
+                onclick="document.getElementById('image-file').click()">
+                图片
+            </button>
+
+            <textarea
+                id="input"
+                placeholder="输入消息，或添加图片后描述你的问题..."
+                rows="1"></textarea>
+
+            <button
+                type="button"
+                class="send-button"
+                id="send-button"
+                onclick="sendMessage()">
+                发送
+            </button>
+
+        </div>
+
+        <div id="input-status" class="input-status"></div>
+
+    </div>
+
+</div>
+
+<script src="/app-ui/static/app.js"></script>
+
+</body>
+</html>

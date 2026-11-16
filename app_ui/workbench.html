@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>MY AI · 工作台</title>
+<!-- 内联 SVG 图标：免去 /favicon.ico 请求，不新增文件、不新增后端路由。 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cdefs%3E%3ClinearGradient%20id='g'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3E%3Cstop%20offset='0'%20stop-color='%233B82F6'/%3E%3Cstop%20offset='1'%20stop-color='%236D5BF6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width='32'%20height='32'%20rx='8'%20fill='url%28%23g%29'/%3E%3Cpath%20d='M16%206.4l2.75%207.85L26.6%2017l-7.85%202.75L16%2027.6l-2.75-7.85L5.4%2017l7.85-2.75z'%20fill='%23fff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/workbench/static/style.css">
+</head>
+<body>
+
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+<symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="2.2"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="2.2"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="2.2"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="2.2"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M11 3.5l1.6 4.4 4.4 1.6-4.4 1.6L11 15.5 9.4 11.1 5 9.5l4.4-1.6z"/><path d="M18 14l.9 2.4 2.4.9-2.4.9-.9 2.4-.9-2.4-2.4-.9 2.4-.9z"/></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M6 20v-6"/><path d="M12 20V7"/><path d="M18 20v-9"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-6M4 11V3M12 21v-9M12 8V3M20 21v-4M20 13V3"/><path d="M2 15h4M10 8h4M18 17h4"/></symbol>
+<symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.4 9.2a2.6 2.6 0 1 1 3.5 2.4c-.6.25-.9.75-.9 1.4v.5"/><path d="M12 17h.01"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.8"/><path d="M20 20l-3.6-3.6"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8.5a6 6 0 1 0-12 0c0 6.5-2.6 8-2.6 8h17.2S18 15 18 8.5z"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.8"/><path d="M4.6 20.5a7.4 7.4 0 0 1 14.8 0"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14"/><path d="M12.5 6l6 6-6 6"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3.5 7h17"/><path d="M3.5 12h17"/><path d="M3.5 17h17"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.6a8.1 8.1 0 0 1-8.7 8.1 9.2 9.2 0 0 1-3.1-.7L3.5 20.5l1.5-4.7a8 8 0 0 1-1.1-4.2A8.1 8.1 0 0 1 12.5 3.5a8.1 8.1 0 0 1 8 8.1z"/></symbol>
+<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="2.6"/><circle cx="8.6" cy="9.8" r="1.7"/><path d="M3.6 17.2l5-4.4 3.7 3.2 2.9-2.4 5.4 4.6"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7.8" ry="3"/><path d="M4.2 6v6c0 1.66 3.5 3 7.8 3s7.8-1.34 7.8-3V6"/><path d="M4.2 12v6c0 1.66 3.5 3 7.8 3s7.8-1.34 7.8-3v-6"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><path d="M12 7.8h.01"/></symbol>
+<symbol id="i-back" viewBox="0 0 24 24"><path d="M19.5 12h-15"/><path d="M11 5.5l-6.5 6.5L11 18.5"/></symbol>
+</svg>
+
+<button class="skip" type="button" data-skip>跳到主内容</button>
+
+<div class="app">
+
+    <aside class="side" id="side" aria-label="侧边导航">
+        <a class="brand" href="#/home">
+            <span class="brand__mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32"><path d="M16 4.5l2.9 8.2 8.2 2.9-8.2 2.9L16 26.7l-2.9-8.2L5 15.6l8.1-2.9z" fill="#fff"/></svg>
+            </span>
+            <span class="brand__text">
+                <strong>MY AI</strong>
+                <small>智能工作空间</small>
+            </span>
+        </a>
+
+        <nav class="nav" aria-label="主导航">
+            <p class="nav__label">主菜单</p>
+            <a class="nav-item" href="#/home" data-route="home">
+                <svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg>
+                <span class="nav-item__text">工作台</span>
+            </a>
+            <a class="nav-item" href="#/ai" data-route="ai">
+                <svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>
+                <span class="nav-item__text">AI 助手</span>
+            </a>
+            <a class="nav-item" href="#/business" data-route="business">
+                <svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>
+                <span class="nav-item__text">业务管理</span>
+            </a>
+            <!-- R1-2-S2-K1：知识库入口。所有已登录角色可见（无 data-requires-role）；
+                 是否允许访问由服务端 get_page_user_strict 守卫决定。 -->
+            <a class="nav-item" href="#/knowledge" data-route="knowledge">
+                <svg class="ico" aria-hidden="true"><use href="#i-db"/></svg>
+                <span class="nav-item__text">知识库</span>
+            </a>
+            <!-- R1-2-S1：管理员专属入口。初始 hidden，仅 role=admin 由脚本显示；
+                 是否允许访问始终由服务端守卫决定，前端隐藏只影响导航展示。 -->
+            <a class="nav-item" href="#/admin" data-route="admin"
+               data-requires-role="admin" hidden>
+                <svg class="ico" aria-hidden="true"><use href="#i-db"/></svg>
+                <span class="nav-item__text">账户管理</span>
+            </a>
+
+            <p class="nav__label">支持</p>
+            <a class="nav-item" href="#/settings" data-route="settings">
+                <svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg>
+                <span class="nav-item__text">系统设置</span>
+            </a>
+            <a class="nav-item" href="#/help" data-route="help">
+                <svg class="ico" aria-hidden="true"><use href="#i-help"/></svg>
+                <span class="nav-item__text">帮助中心</span>
+            </a>
+        </nav>
+
+        <div class="side__foot">
+            <div class="sysinfo">
+                <div class="sysinfo__row"><span>部署</span><b>本地副本</b></div>
+                <div class="sysinfo__row"><span>地址</span><b id="sys-host">—</b></div>
+                <div class="sysinfo__row"><span>版本</span><b>R3-UI-03</b></div>
+            </div>
+        </div>
+    </aside>
+
+    <div class="shell">
+
+        <header class="top">
+            <button class="icon-btn top__menu" type="button" id="menu-btn"
+                    aria-expanded="false" aria-controls="side" aria-label="打开导航">
+                <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
+            </button>
+
+            <div class="search">
+                <svg class="ico search__ico" aria-hidden="true"><use href="#i-search"/></svg>
+                <input class="search__input" type="search" id="global-search"
+                       placeholder="搜索工作台内容" disabled
+                       aria-label="全局搜索（尚未开放）">
+                <span class="search__tag">未开放</span>
+            </div>
+
+            <div class="top__right">
+                <button class="icon-btn" type="button" disabled
+                        aria-label="通知（尚未接入）" title="通知中心尚未接入">
+                    <svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg>
+                </button>
+                <span class="top__sep" aria-hidden="true"></span>
+                <!-- R1-2-S1：身份区。初始 hidden，由 /auth/me 结果填充；
+                     失败/未知角色时显示明确错误，不默认提权。 -->
+                <div class="identity" id="identity" hidden>
+                    <span class="identity__meta">
+                        <b id="identity-name">—</b>
+                        <em id="identity-role" data-role="unknown">身份确认中</em>
+                    </span>
+                    <button class="icon-btn" type="button" id="logout-btn"
+                            aria-label="退出登录" title="退出登录">
+                        <svg class="ico" aria-hidden="true"><use href="#i-user"/></svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="view" id="main" tabindex="-1">
+
+            <section class="pane is-on" data-pane="home">
+
+                <section class="hero">
+                    <div class="hero__body">
+                        <h1 class="hero__title">MY AI</h1>
+                        <p class="hero__tag">智能<span>·</span>高效<span>·</span>专业</p>
+                        <p class="hero__sub">让 AI 助力您的工作与生活</p>
+                    </div>
+                    <svg class="hero__art" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+                        <g fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1">
+                            <circle cx="200" cy="200" r="70"/>
+                            <circle cx="200" cy="200" r="112"/>
+                            <circle cx="200" cy="200" r="154" stroke-dasharray="2 8"/>
+                        </g>
+                        <g fill="rgba(255,255,255,.42)">
+                            <circle cx="312" cy="200" r="2.8"/>
+                            <circle cx="279.2" cy="279.2" r="2.8"/>
+                            <circle cx="200" cy="312" r="2.8"/>
+                            <circle cx="120.8" cy="279.2" r="2.8"/>
+                            <circle cx="88" cy="200" r="2.8"/>
+                            <circle cx="120.8" cy="120.8" r="2.8"/>
+                            <circle cx="200" cy="88" r="2.8"/>
+                            <circle cx="279.2" cy="120.8" r="2.8"/>
+                        </g>
+                        <g stroke="rgba(255,255,255,.30)" stroke-width="1" stroke-dasharray="3 6" fill="none">
+                            <path d="M200 46 L332 264"/>
+                        </g>
+                        <g fill="#fff">
+                            <circle cx="200" cy="46" r="4.6"/>
+                            <circle cx="332" cy="264" r="3"/>
+                        </g>
+                    </svg>
+                </section>
+
+                <section class="entries" aria-label="核心入口">
+
+                    <a class="entry" href="#/ai">
+                        <span class="entry__ico entry__ico--ai" aria-hidden="true">
+                            <svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>
+                        </span>
+                        <span class="entry__main">
+                            <span class="entry__title">AI 助手</span>
+                            <span class="entry__desc">与智能体对话，处理文本与图像任务</span>
+                            <span class="entry__tags">
+                                <span class="tag">智能对话</span>
+                                <span class="tag">深度思考</span>
+                                <span class="tag">助力创作</span>
+                            </span>
+                        </span>
+                        <svg class="ico entry__go" aria-hidden="true"><use href="#i-arrow"/></svg>
+                    </a>
+
+                    <a class="entry" href="#/business">
+                        <span class="entry__ico entry__ico--biz" aria-hidden="true">
+                            <svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>
+                        </span>
+                        <span class="entry__main">
+                            <span class="entry__title">业务管理</span>
+                            <span class="entry__desc">查看并维护订单，掌握业务运营情况</span>
+                            <span class="entry__tags">
+                                <span class="tag">订单管理</span>
+                                <span class="tag">数据分析</span>
+                                <span class="tag">业务运营</span>
+                            </span>
+                        </span>
+                        <svg class="ico entry__go" aria-hidden="true"><use href="#i-arrow"/></svg>
+                    </a>
+
+                </section>
+
+                <section class="lower">
+
+                    <div class="card">
+                        <div class="card__head">
+                            <h2 class="card__title">快捷入口</h2>
+                            <span class="card__hint">仅跳转已存在的页面</span>
+                        </div>
+                        <div class="quick">
+                            <a class="quick__item" href="#/ai">
+                                <span class="quick__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+                                <span class="quick__txt">
+                                    <b>开始对话</b>
+                                    <em>进入 AI 助手输入框</em>
+                                </span>
+                            </a>
+                            <a class="quick__item" href="#/ai">
+                                <span class="quick__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-image"/></svg></span>
+                                <span class="quick__txt">
+                                    <b>分析图片</b>
+                                    <em>在 AI 助手中上传图片</em>
+                                </span>
+                            </a>
+                            <a class="quick__item" href="#/settings">
+                                <span class="quick__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+                                <span class="quick__txt">
+                                    <b>系统设置</b>
+                                    <em>设置模块尚未接入</em>
+                                </span>
+                            </a>
+                            <a class="quick__item" href="#/knowledge" data-route="knowledge">
+                                <span class="quick__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-db"/></svg></span>
+                                <span class="quick__txt">
+                                    <b>知识库</b>
+                                    <em>文档列表与搜索（骨架先行，业务随后接入）</em>
+                                </span>
+                            </a>
+                        </div>
+                        <p class="quick__foot">知识库入口已接入；其余暂未开放模块为静态展示，当前版本尚无可点击界面。</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card__head">
+                            <h2 class="card__title">系统信息</h2>
+                            <span class="card__hint">架构信息 · 非实时状态</span>
+                        </div>
+                        <dl class="facts">
+                            <div class="facts__row"><dt>服务框架</dt><dd>FastAPI + Uvicorn</dd></div>
+                            <div class="facts__row"><dt>数据存储</dt><dd>SQLite · 本地文件</dd></div>
+                            <div class="facts__row"><dt>界面版本</dt><dd>R3-UI-03</dd></div>
+                            <div class="facts__row"><dt>部署形态</dt><dd>单机 · 回环地址</dd></div>
+                        </dl>
+                        <p class="note">
+                            <svg class="ico note__ico" aria-hidden="true"><use href="#i-info"/></svg>
+                            以上为代码中固定的事实，不含运行时长、连接状态等实时指标。
+                        </p>
+                    </div>
+
+                </section>
+
+            </section>
+
+            <section class="pane pane--frame" data-pane="frame">
+                <div class="frame-host" id="frame-host"></div>
+            </section>
+
+            <!-- R1-2-S1：账户管理占位 pane。入口仅 admin 可见；
+                 真实管理界面（HR 账户增删、重置密码）在后续阶段接入。 -->
+            <section class="pane" data-pane="admin">
+                <div class="empty">
+                    <span class="empty__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-db"/></svg></span>
+                    <h2 class="empty__title">账户管理</h2>
+                    <p class="empty__text">管理员账户管理模块将在后续版本提供。<br>临时密码、重置与禁用等操作当前请通过管理员接口完成。</p>
+                    <a class="btn" href="#/home">
+                        <svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>
+                        返回工作台
+                    </a>
+                </div>
+            </section>
+
+            <section class="pane" data-pane="settings">
+                <div class="empty">
+                    <span class="empty__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg></span>
+                    <h2 class="empty__title">系统设置</h2>
+                    <p class="empty__text">当前版本没有可配置项，本页面仅作为导航占位。<br>配置项接入后将在此展示。</p>
+                    <a class="btn" href="#/home">
+                        <svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>
+                        返回工作台
+                    </a>
+                </div>
+            </section>
+
+            <section class="pane" data-pane="help">
+                <div class="empty">
+                    <span class="empty__ico" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-help"/></svg></span>
+                    <h2 class="empty__title">帮助中心</h2>
+                    <p class="empty__text">帮助文档尚未接入本界面。<br>使用说明请参考项目内的文档与接口定义。</p>
+                    <a class="btn" href="#/home">
+                        <svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>
+                        返回工作台
+                    </a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="scrim" id="scrim"></div>
+</div>
+
+<script src="/workbench/static/app.js"></script>
+</body>
+</html>

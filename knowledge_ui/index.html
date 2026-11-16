@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库 · my-ai 25</title>
+<link rel="stylesheet" href="/knowledge-ui/static/style.css">
+</head>
+<body>
+
+<!-- R1-2-S2-K3A：知识库视图（只读功能 + 管理员上传）。
+     边界：
+       - 只读：文档列表、索引状态、知识搜索；
+       - 唯一写操作：管理员上传文档（与列表同一路径的 multipart 提交）；
+       - 不提供删除、覆盖、批量操作或索引重建；
+       - 后端没有文档全文读取 API，因此不提供全文预览；
+       - 页面所有后端内容一律以纯文本渲染（脚本侧只用 textContent）；
+       - 上传区初始隐藏，只有管理员角色由脚本显示（服务端权限才是最终边界）。 -->
+
+<header class="topbar">
+    <div class="topbar-brand">知识库</div>
+    <div class="topbar-status">
+        <span id="identity-status" class="identity-status">身份识别中…</span>
+    </div>
+</header>
+
+<main id="main" class="layout">
+
+    <!-- ============================================================
+         区 0：上传文档（K3A · 管理员专用）
+         初始 hidden：只有管理员角色由脚本显示；普通用户、未知角色、
+         身份检查失败一律保持隐藏（fail-closed）。前端隐藏只是界面层，
+         服务端的管理员权限依赖才是最终边界。
+         本区只做上传：没有删除、覆盖、批量操作或索引重建入口。
+         ============================================================ -->
+    <section class="card" id="upload-section" aria-labelledby="upload-title" hidden>
+        <div class="card__head">
+            <h2 id="upload-title">上传文档</h2>
+            <span class="card__hint">管理员功能</span>
+        </div>
+        <div class="upload-row">
+            <input id="upload-input" class="input-file" type="file"
+                   accept=".md,.txt,.pdf,.docx" aria-label="选择要上传的文档">
+            <button id="upload-submit" class="btn btn-primary" type="button" disabled>
+                上传
+            </button>
+        </div>
+        <p id="upload-file-info" class="placeholder">尚未选择文件。</p>
+        <p id="upload-state" class="placeholder" role="status"></p>
+        <div id="upload-result" class="upload-result" hidden></div>
+        <p class="card__foot">
+            支持 .md / .txt / .pdf / .docx，单文件不超过 10 MiB；不允许同名覆盖与重复内容。
+            上传成功后列表会自动刷新，文件是否已解析和索引请查看「索引状态」。
+        </p>
+    </section>
+
+    <!-- ============================================================
+         区 1：文档列表（GET /knowledge/documents?with_index=false）
+         索引状态列默认隐藏，仅「查看索引状态」触发 with_index=true
+         ============================================================ -->
+    <section class="card" aria-labelledby="doc-list-title">
+        <div class="card__head">
+            <h1 id="doc-list-title">文档列表</h1>
+            <div class="card__actions">
+                <span id="doc-count" class="count-badge">—</span>
+                <button id="refresh-docs" class="btn" type="button">刷新列表</button>
+                <button id="check-index" class="btn" type="button">查看索引状态</button>
+            </div>
+        </div>
+        <p id="doc-state" class="placeholder is-loading" role="status">
+            正在加载文档列表…
+        </p>
+        <div id="doc-table-wrap" class="table-wrap" hidden>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">文件名</th>
+                        <th scope="col">类型</th>
+                        <th scope="col">大小</th>
+                        <th scope="col">更新时间</th>
+                        <th scope="col" data-index-col hidden>索引状态</th>
+                        <th scope="col" data-index-col hidden>片段数</th>
+                    </tr>
+                </thead>
+                <tbody id="doc-rows"></tbody>
+            </table>
+        </div>
+        <p class="card__foot">
+            仅展示文档基本信息与已有索引状态；本页不提供全文预览（后端无文档全文读取接口）。
+        </p>
+    </section>
+
+    <!-- ============================================================
+         区 2：知识搜索（GET /knowledge/search，仅用户提交时发起）
+         ============================================================ -->
+    <section class="card" aria-labelledby="search-title">
+        <div class="card__head">
+            <h2 id="search-title">知识搜索</h2>
+            <span class="card__hint">只读检索 · 不调用大模型</span>
+        </div>
+
+        <form id="search-form" class="search-form">
+            <input id="search-input" class="input" type="search"
+                   placeholder="输入要检索的问题" maxlength="200"
+                   autocomplete="off" aria-label="搜索问题">
+            <label class="field" for="search-topk">
+                <span class="field__label">返回条数</span>
+                <select id="search-topk" class="select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </label>
+            <button id="search-submit" class="btn btn-primary" type="submit">搜索</button>
+        </form>
+
+        <p id="search-state" class="placeholder" role="status">
+            输入问题后点击「搜索」。本页不会自动发起检索。
+        </p>
+
+        <div id="search-results" class="results" hidden></div>
+    </section>
+
+    <p class="stage-note">
+        只读视图：文档列表与知识检索。上传、删除等写操作不在本页面提供。
+    </p>
+
+</main>
+
+<script src="/knowledge-ui/static/app.js"></script>
+</body>
+</html>

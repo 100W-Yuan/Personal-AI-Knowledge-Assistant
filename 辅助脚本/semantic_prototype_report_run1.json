@@ -1,0 +1,178 @@
+{
+  "model": "qwen3-embedding:0.6b",
+  "dim": 1024,
+  "threshold": 0.45,
+  "batch_ms": 5150.4,
+  "passed": 4,
+  "failed": 7,
+  "recall@3": "5/8",
+  "precision@3": "6/14",
+  "mrr": 0.625,
+  "cases": [
+    {
+      "id": "Q1",
+      "query": "我是什么专业的？",
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.475,
+          "rank": 1
+        },
+        {
+          "key": "preference",
+          "cos": 0.4697,
+          "rank": 2
+        }
+      ],
+      "ok": false,
+      "latency_ms": 57.6,
+      "detail": "rel命中 ['major']/['major'] 误召回 ['preference']"
+    },
+    {
+      "id": "Q2",
+      "query": "我以后想从事什么工作？",
+      "top": [
+        {
+          "key": "preference",
+          "cos": 0.5078,
+          "rank": 1
+        }
+      ],
+      "ok": false,
+      "latency_ms": 52.4,
+      "detail": "rel命中 []/['career_goal'] 误召回 ['preference']"
+    },
+    {
+      "id": "Q3a",
+      "query": "我学的是什么方向？",
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.5229,
+          "rank": 1
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.5027,
+          "rank": 2
+        },
+        {
+          "key": "preference",
+          "cos": 0.4902,
+          "rank": 3
+        }
+      ],
+      "ok": false,
+      "latency_ms": 54.8,
+      "detail": "rel命中 ['major']/['major'] 误召回 ['learning_goal', 'preference']"
+    },
+    {
+      "id": "Q3b",
+      "query": "我的专业是什么",
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.5791,
+          "rank": 1
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.5397,
+          "rank": 2
+        },
+        {
+          "key": "preference",
+          "cos": 0.5229,
+          "rank": 3
+        }
+      ],
+      "ok": false,
+      "latency_ms": 36.3,
+      "detail": "rel命中 ['major']/['major'] 误召回 ['learning_goal', 'preference']"
+    },
+    {
+      "id": "Q4",
+      "query": "我的名字是什么",
+      "top": [],
+      "ok": false,
+      "latency_ms": 39.4,
+      "detail": "rel命中 []/['name']"
+    },
+    {
+      "id": "Q5a",
+      "query": "明天会下雨吗",
+      "top": [],
+      "ok": true,
+      "latency_ms": 32.1,
+      "detail": "全部低于阈值"
+    },
+    {
+      "id": "Q5b",
+      "query": "123乘以456等于多少",
+      "top": [],
+      "ok": true,
+      "latency_ms": 10809.6,
+      "detail": "全部低于阈值"
+    },
+    {
+      "id": "Q5c",
+      "query": "这家店的服务态度很好",
+      "top": [],
+      "ok": true,
+      "latency_ms": 103.1,
+      "detail": "全部低于阈值"
+    },
+    {
+      "id": "Q6",
+      "query": "我有什么长期目标？",
+      "top": [
+        {
+          "key": "preference",
+          "cos": 0.4755,
+          "rank": 1
+        }
+      ],
+      "ok": false,
+      "latency_ms": 48.7,
+      "detail": "rel命中 []/['career_goal'] 误召回 ['preference']"
+    },
+    {
+      "id": "Q7",
+      "query": "帮我看看我在学什么技术",
+      "top": [
+        {
+          "key": "learning_goal",
+          "cos": 0.6155,
+          "rank": 1
+        },
+        {
+          "key": "major",
+          "cos": 0.5239,
+          "rank": 2
+        },
+        {
+          "key": "preference",
+          "cos": 0.5196,
+          "rank": 3
+        }
+      ],
+      "ok": false,
+      "latency_ms": 37.4,
+      "detail": "rel命中 ['learning_goal']/['learning_goal'] 误召回 ['preference']"
+    },
+    {
+      "id": "Q8",
+      "query": "我是什么专业的？",
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.475,
+          "rank": 1
+        }
+      ],
+      "ok": true,
+      "latency_ms": 31.4,
+      "detail": "rel命中 ['major']/['major']"
+    }
+  ]
+}

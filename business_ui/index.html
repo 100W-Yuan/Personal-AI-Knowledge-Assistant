@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>业务管理 · my-ai 25</title>
+<link rel="stylesheet" href="/business-ui/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主内容</a>
+
+<div id="global-banner" class="banner" role="alert" hidden></div>
+
+<header class="topbar">
+    <div class="topbar-brand">业务管理</div>
+    <nav class="topbar-nav" aria-label="主导航">
+        <a id="nav-orders" href="#/orders" class="nav-link">订单列表</a>
+        <span id="nav-detail" class="nav-link nav-link-muted" hidden>订单详情</span>
+        <span id="nav-events" class="nav-link nav-link-muted" hidden>物流事件</span>
+    </nav>
+    <div class="topbar-status">
+        <span id="db-indicator" class="db-indicator db-ok">服务正常</span>
+    </div>
+</header>
+
+<main id="main" class="layout">
+
+    <!-- ============================================================
+         视图 1：订单列表
+         ============================================================ -->
+    <section id="view-orders" class="view" hidden aria-labelledby="orders-title">
+
+        <div class="view-head">
+            <div>
+                <h1 id="orders-title">订单列表</h1>
+                <p class="view-subtitle">共 <span id="orders-total-top">0</span> 条订单</p>
+            </div>
+            <button id="toggle-order-form" class="btn btn-primary" type="button">＋ 新建订单</button>
+        </div>
+
+        <!-- 新建订单 -->
+        <form id="order-form" class="panel form-panel" data-action="/business/orders" novalidate hidden>
+            <h2 class="panel-title">新建订单</h2>
+            <div class="form-grid">
+                <label class="field">
+                    <span class="field-label">订单编号 <em>*</em></span>
+                    <input name="order_id" type="text" autocomplete="off" placeholder="例如 ORDER-001">
+                    <span class="field-hint">仅允许字母、数字、下划线和中划线</span>
+                </label>
+                <label class="field">
+                    <span class="field-label">客户编号 <em>*</em></span>
+                    <input name="customer_id" type="text" autocomplete="off" placeholder="例如 CUSTOMER-001">
+                </label>
+                <label class="field">
+                    <span class="field-label">订单状态 <em>*</em></span>
+                    <select name="status">
+                        <option value="待支付">待支付</option>
+                        <option value="已支付">已支付</option>
+                        <option value="待发货">待发货</option>
+                        <option value="已发货">已发货</option>
+                        <option value="已完成">已完成</option>
+                        <option value="已取消">已取消</option>
+                    </select>
+                </label>
+                <label class="field">
+                    <span class="field-label">创建时间 <em>*</em></span>
+                    <input name="created_at" type="datetime-local" step="1">
+                </label>
+                <label class="field">
+                    <span class="field-label">金额 <em>*</em></span>
+                    <input name="amount" type="number" step="0.01" min="0" inputmode="decimal" placeholder="0.00">
+                </label>
+                <label class="field">
+                    <span class="field-label">支付时间</span>
+                    <input name="paid_at" type="datetime-local" step="1">
+                    <span class="field-hint">可留空</span>
+                </label>
+            </div>
+            <p class="form-error" hidden></p>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">保存订单</button>
+                <button type="button" class="btn" data-close-form="order-form">取消</button>
+            </div>
+        </form>
+
+        <!-- 筛选 -->
+        <form id="order-filter" class="panel filter-bar" novalidate>
+            <label class="field field-inline">
+                <span class="field-label">订单状态</span>
+                <select name="status">
+                    <option value="">全部</option>
+                    <option value="待支付">待支付</option>
+                    <option value="已支付">已支付</option>
+                    <option value="待发货">待发货</option>
+                    <option value="已发货">已发货</option>
+                    <option value="已完成">已完成</option>
+                    <option value="已取消">已取消</option>
+                </select>
+            </label>
+            <label class="field field-inline">
+                <span class="field-label">客户编号</span>
+                <input name="customer_id" type="text" autocomplete="off" placeholder="精确匹配">
+            </label>
+            <label class="field field-inline">
+                <span class="field-label">创建时间起</span>
+                <input name="created_from" type="datetime-local" step="1">
+            </label>
+            <label class="field field-inline">
+                <span class="field-label">创建时间止</span>
+                <input name="created_to" type="datetime-local" step="1">
+            </label>
+            <div class="filter-actions">
+                <button type="submit" class="btn btn-primary">查询</button>
+                <button type="button" id="order-filter-reset" class="btn">重置</button>
+            </div>
+        </form>
+
+        <p class="notice">
+            时间筛选按数据库中的文本原样比较；若只填写日期部分，可能无法命中当日带时分秒的记录。
+        </p>
+
+        <div class="panel">
+            <div id="orders-table" class="table-wrap"></div>
+            <div class="pager">
+                <span id="orders-total" class="pager-total">共 0 条</span>
+                <label class="pager-size">每页
+                    <select id="orders-page-size">
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </label>
+                <button id="orders-prev" class="btn" type="button">上一页</button>
+                <span id="orders-page-info" class="pager-info">1 / 1</span>
+                <button id="orders-next" class="btn" type="button">下一页</button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============================================================
+         视图 2：订单详情
+         ============================================================ -->
+    <section id="view-detail" class="view" hidden aria-labelledby="detail-title">
+
+        <div class="view-head">
+            <div>
+                <a href="#/orders" class="back-link">← 返回订单列表</a>
+                <h1 id="detail-title">订单详情</h1>
+            </div>
+        </div>
+
+        <div id="detail-body">
+            <div id="order-summary" class="panel"></div>
+
+            <!-- 支付记录 -->
+            <section class="panel section" aria-labelledby="payments-title">
+                <div class="section-head">
+                    <h2 id="payments-title">支付记录</h2>
+                    <button id="toggle-payment-form" class="btn btn-small" type="button">＋ 新建支付</button>
+                </div>
+                <form id="payment-form" class="form-panel-inner" data-action="/business/payments" novalidate hidden>
+                    <input type="hidden" name="order_id">
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field-label">支付编号 <em>*</em></span>
+                            <input name="payment_id" type="text" autocomplete="off" placeholder="例如 PAY-001">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">支付方式 <em>*</em></span>
+                            <input name="method" type="text" autocomplete="off" placeholder="例如 支付宝 / 微信支付">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">金额 <em>*</em></span>
+                            <input name="amount" type="number" step="0.01" min="0" inputmode="decimal" placeholder="0.00">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">支付状态 <em>*</em></span>
+                            <select name="status">
+                                <option value="待支付">待支付</option>
+                                <option value="支付成功">支付成功</option>
+                                <option value="支付失败">支付失败</option>
+                                <option value="已退款">已退款</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span class="field-label">支付时间</span>
+                            <input name="paid_at" type="datetime-local" step="1">
+                        </label>
+                    </div>
+                    <p class="form-error" hidden></p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">保存支付记录</button>
+                        <button type="button" class="btn" data-close-form="payment-form">取消</button>
+                    </div>
+                </form>
+                <p id="payments-meta" class="section-meta"></p>
+                <div id="payments-table" class="table-wrap"></div>
+            </section>
+
+            <!-- 物流记录 -->
+            <section class="panel section" aria-labelledby="shipments-title">
+                <div class="section-head">
+                    <h2 id="shipments-title">物流记录</h2>
+                    <button id="toggle-shipment-form" class="btn btn-small" type="button">＋ 新建物流</button>
+                </div>
+                <form id="shipment-form" class="form-panel-inner" data-action="/business/shipments" novalidate hidden>
+                    <input type="hidden" name="order_id">
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field-label">物流编号 <em>*</em></span>
+                            <input name="shipment_id" type="text" autocomplete="off" placeholder="例如 SHIP-001">
+                            <span class="field-hint">仅允许字母、数字、下划线和中划线</span>
+                        </label>
+                        <label class="field">
+                            <span class="field-label">承运商 <em>*</em></span>
+                            <input name="carrier" type="text" autocomplete="off" placeholder="例如 顺丰">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">物流状态 <em>*</em></span>
+                            <input name="status" type="text" autocomplete="off" placeholder="自由填写，例如 运输中">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">最近更新时间</span>
+                            <input name="t_last" type="datetime-local" step="1">
+                        </label>
+                    </div>
+                    <div class="check-row">
+                        <label class="check"><input name="at_hub" type="checkbox"> 在转运中心</label>
+                        <label class="check"><input name="departed_hub" type="checkbox"> 已离开转运中心</label>
+                    </div>
+                    <p class="form-error" hidden></p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">保存物流记录</button>
+                        <button type="button" class="btn" data-close-form="shipment-form">取消</button>
+                    </div>
+                </form>
+                <p id="shipments-meta" class="section-meta"></p>
+                <div id="shipments-table" class="table-wrap"></div>
+            </section>
+
+            <!-- 售后记录 -->
+            <section class="panel section" aria-labelledby="aftersales-title">
+                <div class="section-head">
+                    <h2 id="aftersales-title">售后记录</h2>
+                    <button id="toggle-aftersale-form" class="btn btn-small" type="button">＋ 新建售后</button>
+                </div>
+                <form id="aftersale-form" class="form-panel-inner" data-action="/business/aftersales" novalidate hidden>
+                    <input type="hidden" name="order_id">
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field-label">售后编号 <em>*</em></span>
+                            <input name="aftersale_id" type="text" autocomplete="off" placeholder="例如 AFTER-001">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">售后类型 <em>*</em></span>
+                            <input name="type" type="text" autocomplete="off" placeholder="自由填写，例如 退款">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">售后状态 <em>*</em></span>
+                            <select name="status">
+                                <option value="待处理">待处理</option>
+                                <option value="处理中">处理中</option>
+                                <option value="已完成">已完成</option>
+                                <option value="已关闭">已关闭</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span class="field-label">创建时间 <em>*</em></span>
+                            <input name="created_at" type="datetime-local" step="1">
+                        </label>
+                    </div>
+                    <p class="form-error" hidden></p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">保存售后记录</button>
+                        <button type="button" class="btn" data-close-form="aftersale-form">取消</button>
+                    </div>
+                </form>
+                <p id="aftersales-meta" class="section-meta"></p>
+                <div id="aftersales-table" class="table-wrap"></div>
+            </section>
+
+            <!-- 客服工单 -->
+            <section class="panel section" aria-labelledby="workorders-title">
+                <div class="section-head">
+                    <h2 id="workorders-title">客服工单</h2>
+                    <button id="toggle-workorder-form" class="btn btn-small" type="button">＋ 新建工单</button>
+                </div>
+                <form id="workorder-form" class="form-panel-inner" data-action="/business/workorders" novalidate hidden>
+                    <input type="hidden" name="order_id">
+                    <div class="form-grid">
+                        <label class="field">
+                            <span class="field-label">工单编号 <em>*</em></span>
+                            <input name="workorder_id" type="text" autocomplete="off" placeholder="例如 WORK-001">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">工单类型 <em>*</em></span>
+                            <input name="type" type="text" autocomplete="off" placeholder="自由填写，例如 订单异常">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">工单状态 <em>*</em></span>
+                            <select name="status">
+                                <option value="待处理">待处理</option>
+                                <option value="处理中">处理中</option>
+                                <option value="已完成">已完成</option>
+                                <option value="已关闭">已关闭</option>
+                            </select>
+                        </label>
+                        <label class="field">
+                            <span class="field-label">创建时间 <em>*</em></span>
+                            <input name="created_at" type="datetime-local" step="1">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">负责人</span>
+                            <input name="assigned_to" type="text" autocomplete="off" placeholder="可留空">
+                        </label>
+                    </div>
+                    <p class="form-error" hidden></p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">保存工单</button>
+                        <button type="button" class="btn" data-close-form="workorder-form">取消</button>
+                    </div>
+                </form>
+                <p id="workorders-meta" class="section-meta"></p>
+                <div id="workorders-table" class="table-wrap"></div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- ============================================================
+         视图 3：物流事件时间线
+         ============================================================ -->
+    <section id="view-events" class="view" hidden aria-labelledby="events-title">
+
+        <div class="view-head">
+            <div>
+                <a id="events-back" href="#/orders" class="back-link">← 返回订单详情</a>
+                <h1 id="events-title">物流事件</h1>
+            </div>
+            <button id="toggle-event-form" class="btn btn-primary" type="button">＋ 录入事件</button>
+        </div>
+
+        <div id="shipment-summary" class="panel"></div>
+
+        <form id="event-form" class="panel form-panel" data-action="/business/shipment-events" novalidate hidden>
+            <h2 class="panel-title">录入物流事件</h2>
+            <input type="hidden" name="shipment_id">
+            <div class="form-grid">
+                <label class="field">
+                    <span class="field-label">事件编号 <em>*</em></span>
+                    <input name="event_id" type="text" autocomplete="off" placeholder="例如 EVENT-001">
+                </label>
+                <label class="field">
+                    <span class="field-label">事件类型 <em>*</em></span>
+                    <input name="event_type" type="text" autocomplete="off" placeholder="自由填写，例如 到达转运中心">
+                </label>
+                <label class="field">
+                    <span class="field-label">事件时间 <em>*</em></span>
+                    <input name="event_time" type="datetime-local" step="1">
+                </label>
+                <label class="field field-wide">
+                    <span class="field-label">事件说明</span>
+                    <textarea name="detail" rows="2" placeholder="可留空"></textarea>
+                </label>
+            </div>
+            <div class="check-row">
+                <label class="check"><input name="is_real_advance" type="checkbox"> 真实提前</label>
+                <label class="check"><input name="is_exception" type="checkbox"> 异常事件</label>
+            </div>
+            <p class="form-error" hidden></p>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">保存事件</button>
+                <button type="button" class="btn" data-close-form="event-form">取消</button>
+            </div>
+        </form>
+
+        <div class="panel">
+            <p id="events-meta" class="section-meta"></p>
+            <ol id="events-timeline" class="timeline"></ol>
+        </div>
+
+    </section>
+
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<noscript>
+    <p class="noscript">本页面需要启用 JavaScript 才能使用。</p>
+</noscript>
+
+<script src="/business-ui/app.js"></script>
+</body>
+</html>

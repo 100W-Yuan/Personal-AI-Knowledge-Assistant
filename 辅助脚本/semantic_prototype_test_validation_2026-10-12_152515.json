@@ -1,0 +1,1377 @@
+{
+  "run_timestamp": "2026-10-12_152515",
+  "backend": "ollama",
+  "model": "qwen3-embedding:0.6b",
+  "dim": 1024,
+  "frozen_config": {
+    "strategy": "B",
+    "constraint": "category of rel∪allow",
+    "threshold": 0.35,
+    "top_k": 3
+  },
+  "test_case_count": 32,
+  "executed_count": 29,
+  "scenario_skipped": [
+    "E48",
+    "E49",
+    "E50"
+  ],
+  "dev_used": false,
+  "timing": {
+    "cold_ms": 4412.1,
+    "warm_ms": 45.4,
+    "latency_samples": 87,
+    "p50_ms": 50.9,
+    "p95_ms": 144.1,
+    "method": "nearest-rank",
+    "samples_ms": [
+      42.24,
+      43.18,
+      41.85,
+      62.05,
+      56.84,
+      154.22,
+      130.92,
+      127.16,
+      134.74,
+      147.33,
+      136.03,
+      87.47,
+      48.52,
+      55.21,
+      73.08,
+      44.87,
+      57.1,
+      56.57,
+      46.41,
+      43.69,
+      60.03,
+      43.37,
+      44.31,
+      64.1,
+      68.52,
+      50.56,
+      50.78,
+      46.11,
+      52.7,
+      62.18,
+      57.41,
+      65.82,
+      46.73,
+      63.84,
+      47.27,
+      43.55,
+      62.83,
+      48.66,
+      42.89,
+      61.95,
+      58.78,
+      45.19,
+      68.62,
+      47.47,
+      43.18,
+      50.67,
+      50.86,
+      44.91,
+      46.4,
+      63.01,
+      49.2,
+      48.61,
+      71.68,
+      128.93,
+      190.69,
+      150.66,
+      144.11,
+      139.91,
+      58.63,
+      48.77,
+      49.85,
+      68.44,
+      46.76,
+      47.01,
+      48.41,
+      56.94,
+      46.35,
+      46.81,
+      41.44,
+      42.47,
+      46.69,
+      59.08,
+      52.77,
+      43.05,
+      38.6,
+      59.85,
+      58.79,
+      43.34,
+      50.1,
+      47.75,
+      59.69,
+      44.67,
+      58.12,
+      47.7,
+      47.36,
+      56.31,
+      53.61
+    ]
+  },
+  "failures": [],
+  "timeouts": [],
+  "incomplete": [],
+  "metrics": {
+    "recall": "18/18",
+    "precision": "29/44",
+    "mrr": 0.7593,
+    "miss_count": 0,
+    "miss_cases": [],
+    "wrong_items_in_top3": 15,
+    "returned_items": 44,
+    "wrong_ratio": 0.3409
+  },
+  "by_purpose": {
+    "EDGE": "1/1",
+    "MIX": "6/6",
+    "R": "5/5",
+    "RANK": "6/6"
+  },
+  "similarity_matrix_full_precision": {
+    "E21": {
+      "major": 0.43667506331423955,
+      "degree": 0.4047697796481973,
+      "school": 0.3850072104068779,
+      "career_goal": 0.4346535799620284,
+      "learning_goal": 0.40077065674564827,
+      "side_goal": 0.3996079853436306,
+      "preference": 0.40195524784812664,
+      "language_preference": 0.4024655457459796,
+      "project": 0.2778136151420741,
+      "skill": 0.3757871331105523,
+      "location": 0.40331749965090863,
+      "name": 0.4826337503971345
+    },
+    "E22": {
+      "major": 0.4011544952495034,
+      "degree": 0.39300802888743824,
+      "school": 0.3507830273871739,
+      "career_goal": 0.3932528709312951,
+      "learning_goal": 0.40320623789878923,
+      "side_goal": 0.42313623123336175,
+      "preference": 0.3292784321094306,
+      "language_preference": 0.3755786874941279,
+      "project": 0.2863352573542834,
+      "skill": 0.3946391169395581,
+      "location": 0.3795187642426609,
+      "name": 0.3316331538616626
+    },
+    "E23": {
+      "major": 0.39586619275304546,
+      "degree": 0.3585156837513835,
+      "school": 0.34460297768806486,
+      "career_goal": 0.41894921350541914,
+      "learning_goal": 0.44874714865483334,
+      "side_goal": 0.40056370933382834,
+      "preference": 0.28376150342271905,
+      "language_preference": 0.33169328528120784,
+      "project": 0.38148656519223656,
+      "skill": 0.3660870828744377,
+      "location": 0.34692331390732817,
+      "name": 0.34799445312000704
+    },
+    "E24": {
+      "major": 0.39852316025206674,
+      "degree": 0.2827246232536809,
+      "school": 0.3021474873254861,
+      "career_goal": 0.4527161719386116,
+      "learning_goal": 0.49421337067646504,
+      "side_goal": 0.4856434090392444,
+      "preference": 0.35939295722431225,
+      "language_preference": 0.37760801807497124,
+      "project": 0.3052188960099678,
+      "skill": 0.4331561876774068,
+      "location": 0.33279861062331156,
+      "name": 0.3505148122805052
+    },
+    "E25": {
+      "major": 0.4090782949150359,
+      "degree": 0.32880813027416106,
+      "school": 0.3924090053819788,
+      "career_goal": 0.36546183047353265,
+      "learning_goal": 0.4102129338699148,
+      "side_goal": 0.36911530975394513,
+      "preference": 0.3028112124300381,
+      "language_preference": 0.36715020926685105,
+      "project": 0.27301357288239864,
+      "skill": 0.5439532047046532,
+      "location": 0.2786315091850868,
+      "name": 0.3603040791886238
+    },
+    "E26": {
+      "major": 0.4114121072910487,
+      "degree": 0.34319862086214875,
+      "school": 0.35746151441905605,
+      "career_goal": 0.3605358939117885,
+      "learning_goal": 0.44224063393912877,
+      "side_goal": 0.41577358468293285,
+      "preference": 0.41924333660913704,
+      "language_preference": 0.5916603349256837,
+      "project": 0.31660184409468844,
+      "skill": 0.380962371781687,
+      "location": 0.4083352074322858,
+      "name": 0.39563060164317926
+    },
+    "E27": {
+      "major": 0.4783542252743144,
+      "degree": 0.33890259531177785,
+      "school": 0.3292722058329115,
+      "career_goal": 0.6442281730745338,
+      "learning_goal": 0.4504877658491733,
+      "side_goal": 0.700090726242724,
+      "preference": 0.2928671064385288,
+      "language_preference": 0.4288110432604324,
+      "project": 0.3755591628451192,
+      "skill": 0.3964528392723816,
+      "location": 0.2683491878628358,
+      "name": 0.33754181921565396
+    },
+    "E28": {
+      "major": 0.36421695578561775,
+      "degree": 0.29934140035208423,
+      "school": 0.25558258881029366,
+      "career_goal": 0.39679320616903013,
+      "learning_goal": 0.3344626798704104,
+      "side_goal": 0.5457572302873896,
+      "preference": 0.38718135341468013,
+      "language_preference": 0.42070851023913164,
+      "project": 0.3846267896796528,
+      "skill": 0.3411724395334898,
+      "location": 0.3028954176469153,
+      "name": 0.36327342059602014
+    },
+    "E29": {
+      "major": 0.5762773071656944,
+      "degree": 0.534794285242298,
+      "school": 0.4607293022226897,
+      "career_goal": 0.43227720922857565,
+      "learning_goal": 0.49379851927383805,
+      "side_goal": 0.39644088092721735,
+      "preference": 0.35402861070639924,
+      "language_preference": 0.4281739719342999,
+      "project": 0.3067134088805082,
+      "skill": 0.4523928084934323,
+      "location": 0.3738586984234134,
+      "name": 0.3824763223884293
+    },
+    "E30": {
+      "major": 0.4483015088153631,
+      "degree": 0.44332369514367315,
+      "school": 0.39807973706294664,
+      "career_goal": 0.4200643928447944,
+      "learning_goal": 0.48521551439005267,
+      "side_goal": 0.42738597315273863,
+      "preference": 0.3459774330047389,
+      "language_preference": 0.4139525368334664,
+      "project": 0.2939068730485119,
+      "skill": 0.4800631121148976,
+      "location": 0.37960873819063046,
+      "name": 0.40456650557817303
+    },
+    "E31": {
+      "major": 0.5448022835390849,
+      "degree": 0.4030479021353008,
+      "school": 0.5667032639136916,
+      "career_goal": 0.3853565150859375,
+      "learning_goal": 0.4191477881472103,
+      "side_goal": 0.3001800884591676,
+      "preference": 0.29762400054188504,
+      "language_preference": 0.41140583167581296,
+      "project": 0.33202427134207907,
+      "skill": 0.3405818469960329,
+      "location": 0.6557023191247843,
+      "name": 0.47087323669099945
+    },
+    "E32": {
+      "major": 0.37508428923162884,
+      "degree": 0.32955691403614895,
+      "school": 0.316509278604387,
+      "career_goal": 0.3164059629828696,
+      "learning_goal": 0.3017172233174864,
+      "side_goal": 0.2960235537051121,
+      "preference": 0.30370189668034747,
+      "language_preference": 0.3641592712896173,
+      "project": 0.31041646093183667,
+      "skill": 0.32802142137530255,
+      "location": 0.5750093633832235,
+      "name": 0.326932688345298
+    },
+    "E33": {
+      "major": 0.40490145136501926,
+      "degree": 0.39412130508346205,
+      "school": 0.3229971285594143,
+      "career_goal": 0.38659464925344406,
+      "learning_goal": 0.431881658709736,
+      "side_goal": 0.45409937322461447,
+      "preference": 0.3761867878442991,
+      "language_preference": 0.4220223777481551,
+      "project": 0.37722730403809035,
+      "skill": 0.39535097696900706,
+      "location": 0.3821478907345844,
+      "name": 0.3572437714372374
+    },
+    "E34": {
+      "major": 0.5201035749990536,
+      "degree": 0.5744560324334337,
+      "school": 0.4925354247274571,
+      "career_goal": 0.39127289378300184,
+      "learning_goal": 0.5842288138333623,
+      "side_goal": 0.379962788590438,
+      "preference": 0.29124989984222555,
+      "language_preference": 0.4253230100848652,
+      "project": 0.3727529981013599,
+      "skill": 0.41431099802604415,
+      "location": 0.3543240837135656,
+      "name": 0.3635784897763701
+    },
+    "E35": {
+      "major": 0.48433653611954025,
+      "degree": 0.3370307010430978,
+      "school": 0.3903079132592955,
+      "career_goal": 0.6281611769139924,
+      "learning_goal": 0.4414347604177253,
+      "side_goal": 0.752484867561818,
+      "preference": 0.3030446259759574,
+      "language_preference": 0.3393274387301817,
+      "project": 0.34480898506744606,
+      "skill": 0.35453775952450295,
+      "location": 0.2709635275993765,
+      "name": 0.36439773143656895
+    },
+    "E36": {
+      "major": 0.5159757387245979,
+      "degree": 0.46814684458086797,
+      "school": 0.4313345869335889,
+      "career_goal": 0.45277392135208616,
+      "learning_goal": 0.5797475438128388,
+      "side_goal": 0.39942027188677287,
+      "preference": 0.3540442870395733,
+      "language_preference": 0.41085818788138534,
+      "project": 0.3243586675419376,
+      "skill": 0.48349486259963687,
+      "location": 0.4306383707157903,
+      "name": 0.39468421869845255
+    },
+    "E37": {
+      "major": 0.4491412075599738,
+      "degree": 0.4339786643345417,
+      "school": 0.35032263352993626,
+      "career_goal": 0.3838326462685794,
+      "learning_goal": 0.45133294302526683,
+      "side_goal": 0.39973717908813894,
+      "preference": 0.49858085700100857,
+      "language_preference": 0.6037674639415052,
+      "project": 0.3440691982645845,
+      "skill": 0.4333961434205119,
+      "location": 0.3885792713790179,
+      "name": 0.36957383561700585
+    },
+    "E38": {
+      "major": 0.3225087941559308,
+      "degree": 0.27126481995215473,
+      "school": 0.29642742311990494,
+      "career_goal": 0.3147089355487869,
+      "learning_goal": 0.2935384737228913,
+      "side_goal": 0.3448885628639115,
+      "preference": 0.3176952213045256,
+      "language_preference": 0.3045270917516389,
+      "project": 0.2546332118511826,
+      "skill": 0.2689401687234918,
+      "location": 0.2853384508668947,
+      "name": 0.30355706025084195
+    },
+    "E39": {
+      "major": 0.3522554289026496,
+      "degree": 0.31268544214035954,
+      "school": 0.298075328971935,
+      "career_goal": 0.33699857676137673,
+      "learning_goal": 0.3660985567842026,
+      "side_goal": 0.3245305702812046,
+      "preference": 0.2749506530962983,
+      "language_preference": 0.3038628026224965,
+      "project": 0.24091944352360406,
+      "skill": 0.32630050778554054,
+      "location": 0.24292396137122194,
+      "name": 0.34510404767649344
+    },
+    "E40": {
+      "major": 0.2915488120414464,
+      "degree": 0.2083248812495359,
+      "school": 0.2932588164980675,
+      "career_goal": 0.2710824295617516,
+      "learning_goal": 0.27514855667480126,
+      "side_goal": 0.2862430132693521,
+      "preference": 0.2598196810813333,
+      "language_preference": 0.2992420390120828,
+      "project": 0.2467855963333651,
+      "skill": 0.2694667050140517,
+      "location": 0.26206490701643875,
+      "name": 0.30416869709208855
+    },
+    "E41": {
+      "major": 0.4019041463968212,
+      "degree": 0.3885468973131898,
+      "school": 0.3300418008798303,
+      "career_goal": 0.3462423446733049,
+      "learning_goal": 0.37396203057680577,
+      "side_goal": 0.3377237905895648,
+      "preference": 0.4266621021600581,
+      "language_preference": 0.47967055202791814,
+      "project": 0.28963221001120004,
+      "skill": 0.3688843314923549,
+      "location": 0.3542529868641154,
+      "name": 0.38879883058261433
+    },
+    "E42": {
+      "major": 0.28978930276936943,
+      "degree": 0.27019093546800194,
+      "school": 0.280843334899137,
+      "career_goal": 0.27139969923570645,
+      "learning_goal": 0.3149348657117648,
+      "side_goal": 0.33067628675810723,
+      "preference": 0.510867532933528,
+      "language_preference": 0.4331154550540657,
+      "project": 0.2527770461616109,
+      "skill": 0.30112965921593904,
+      "location": 0.2970383214529475,
+      "name": 0.31856167857865003
+    },
+    "E43": {
+      "major": 0.3966346146249805,
+      "degree": 0.42249889715684824,
+      "school": 0.41690461421949637,
+      "career_goal": 0.3624602585902315,
+      "learning_goal": 0.3507079142508272,
+      "side_goal": 0.32232002804879634,
+      "preference": 0.34804550071715895,
+      "language_preference": 0.29944665496549133,
+      "project": 0.29278012792787145,
+      "skill": 0.36147059471668874,
+      "location": 0.36683688484862986,
+      "name": 0.3936438463565883
+    },
+    "E44": {
+      "major": 0.39316467997860804,
+      "degree": 0.3294869472895727,
+      "school": 0.34686133552968185,
+      "career_goal": 0.4064580423529562,
+      "learning_goal": 0.3997436754959541,
+      "side_goal": 0.3782329878278553,
+      "preference": 0.3513502193832029,
+      "language_preference": 0.4837814576914226,
+      "project": 0.2593741685999085,
+      "skill": 0.386673808347601,
+      "location": 0.32966875589327527,
+      "name": 0.4069077575393944
+    },
+    "E45": {
+      "major": 0.43111302196549006,
+      "degree": 0.3253968511004881,
+      "school": 0.2917606500303046,
+      "career_goal": 0.3743893362403052,
+      "learning_goal": 0.36085192909811603,
+      "side_goal": 0.4096619814362037,
+      "preference": 0.33034304410698967,
+      "language_preference": 0.2894253021388792,
+      "project": 0.31138902679925895,
+      "skill": 0.4326634013798749,
+      "location": 0.25377860112054074,
+      "name": 0.36415921641440047
+    },
+    "E46": {
+      "major": 0.3618902687771798,
+      "degree": 0.33576893819842285,
+      "school": 0.37149518824375144,
+      "career_goal": 0.29225252230911214,
+      "learning_goal": 0.4015309367129487,
+      "side_goal": 0.2974091460122746,
+      "preference": 0.3568344225242491,
+      "language_preference": 0.4579377961734594,
+      "project": 0.3978717513310956,
+      "skill": 0.3194688930855278,
+      "location": 0.3643096899293211,
+      "name": 0.4140625059814311
+    },
+    "E47": {
+      "major": 0.4085958791118453,
+      "degree": 0.28593733840338803,
+      "school": 0.29350959022520234,
+      "career_goal": 0.35197059258749436,
+      "learning_goal": 0.39529309126857093,
+      "side_goal": 0.3880117723941569,
+      "preference": 0.27298934358865723,
+      "language_preference": 0.3580589310683985,
+      "project": 0.2864625591242729,
+      "skill": 0.327523224961586,
+      "location": 0.26468527297132755,
+      "name": 0.3633634808308125
+    },
+    "E51": {
+      "major": 0.47498977941631587,
+      "degree": 0.4900739776810148,
+      "school": 0.4336181211469636,
+      "career_goal": 0.4260106263520579,
+      "learning_goal": 0.4178574593522256,
+      "side_goal": 0.357669186916141,
+      "preference": 0.3144724488173273,
+      "language_preference": 0.39072460999563907,
+      "project": 0.2751878724960565,
+      "skill": 0.4103233918880051,
+      "location": 0.3643157157783173,
+      "name": 0.3643382566596893
+    },
+    "E52": {
+      "major": 0.3225087941559308,
+      "degree": 0.27126481995215473,
+      "school": 0.29642742311990494,
+      "career_goal": 0.3147089355487869,
+      "learning_goal": 0.2935384737228913,
+      "side_goal": 0.3448885628639115,
+      "preference": 0.3176952213045256,
+      "language_preference": 0.3045270917516389,
+      "project": 0.2546332118511826,
+      "skill": 0.2689401687234918,
+      "location": 0.2853384508668947,
+      "name": 0.30355706025084195
+    }
+  },
+  "cases": [
+    {
+      "id": "E21",
+      "q": "我的 major 是什么",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "major"
+      ],
+      "allow": [],
+      "forbid": [
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.43667506331423955,
+          "rank": 1
+        },
+        {
+          "key": "degree",
+          "cos": 0.4047697796481973,
+          "rank": 2
+        },
+        {
+          "key": "location",
+          "cos": 0.40331749965090863,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "degree",
+        "location"
+      ]
+    },
+    {
+      "id": "E22",
+      "q": "我未来的 career goal 是什么",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "career_goal"
+      ],
+      "allow": [
+        "learning_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "side_goal",
+          "cos": 0.42313623123336175,
+          "rank": 1
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.40320623789878923,
+          "rank": 2
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.3932528709312951,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "side_goal"
+      ]
+    },
+    {
+      "id": "E23",
+      "q": "我的 project 进展如何",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "project"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "project",
+          "cos": 0.38148656519223656,
+          "rank": 1
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E24",
+      "q": "我的 AI skill 怎么样",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "skill"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "skill",
+          "cos": 0.4331561876774068,
+          "rank": 1
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E25",
+      "q": "Python 水平如何",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "skill"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "skill",
+          "cos": 0.5439532047046532,
+          "rank": 1
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E26",
+      "q": "我的 preference 是什么",
+      "purpose": "MIX",
+      "status": "hit",
+      "rel": [
+        "preference"
+      ],
+      "allow": [
+        "language_preference"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "language_preference",
+          "cos": 0.5916603349256837,
+          "rank": 1
+        },
+        {
+          "key": "preference",
+          "cos": 0.41924333660913704,
+          "rank": 2
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E27",
+      "q": "和机器人相关的目标",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "career_goal"
+      ],
+      "allow": [
+        "side_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "learning_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "side_goal",
+          "cos": 0.700090726242724,
+          "rank": 1
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.6442281730745338,
+          "rank": 2
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.4504877658491733,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "learning_goal"
+      ]
+    },
+    {
+      "id": "E28",
+      "q": "我帮朋友做的事",
+      "purpose": "R",
+      "status": "hit",
+      "rel": [
+        "side_goal"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "side_goal",
+          "cos": 0.5457572302873896,
+          "rank": 1
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.39679320616903013,
+          "rank": 2
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "career_goal"
+      ]
+    },
+    {
+      "id": "E29",
+      "q": "我学的是计算机吗",
+      "purpose": "R",
+      "status": "hit",
+      "rel": [
+        "major"
+      ],
+      "allow": [
+        "degree"
+      ],
+      "forbid": [
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "major",
+          "cos": 0.5762773071656944,
+          "rank": 1
+        },
+        {
+          "key": "degree",
+          "cos": 0.534794285242298,
+          "rank": 2
+        },
+        {
+          "key": "school",
+          "cos": 0.4607293022226897,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "school"
+      ]
+    },
+    {
+      "id": "E30",
+      "q": "我的水平怎么样",
+      "purpose": "R",
+      "status": "hit",
+      "rel": [
+        "skill"
+      ],
+      "allow": [
+        "learning_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "learning_goal",
+          "cos": 0.48521551439005267,
+          "rank": 1
+        },
+        {
+          "key": "skill",
+          "cos": 0.4800631121148976,
+          "rank": 2
+        },
+        {
+          "key": "side_goal",
+          "cos": 0.42738597315273863,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "side_goal"
+      ]
+    },
+    {
+      "id": "E31",
+      "q": "上海",
+      "purpose": "R",
+      "status": "hit",
+      "rel": [
+        "location"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "location",
+          "cos": 0.6557023191247843,
+          "rank": 1
+        },
+        {
+          "key": "school",
+          "cos": 0.5667032639136916,
+          "rank": 2
+        },
+        {
+          "key": "major",
+          "cos": 0.5448022835390849,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "school",
+        "major"
+      ]
+    },
+    {
+      "id": "E32",
+      "q": "我现在住哪",
+      "purpose": "R",
+      "status": "hit",
+      "rel": [
+        "location"
+      ],
+      "allow": [],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "location",
+          "cos": 0.5750093633832235,
+          "rank": 1
+        },
+        {
+          "key": "major",
+          "cos": 0.37508428923162884,
+          "rank": 2
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "major"
+      ]
+    },
+    {
+      "id": "E33",
+      "q": "我接下来想做的事",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "career_goal"
+      ],
+      "allow": [
+        "learning_goal",
+        "side_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "side_goal",
+          "cos": 0.45409937322461447,
+          "rank": 1
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.431881658709736,
+          "rank": 2
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.38659464925344406,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E34",
+      "q": "学习方面的目标",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "learning_goal"
+      ],
+      "allow": [
+        "career_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "learning_goal",
+          "cos": 0.5842288138333623,
+          "rank": 1
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.39127289378300184,
+          "rank": 2
+        },
+        {
+          "key": "side_goal",
+          "cos": 0.379962788590438,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "side_goal"
+      ]
+    },
+    {
+      "id": "E35",
+      "q": "机器人比赛相关的事",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "side_goal"
+      ],
+      "allow": [
+        "career_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "learning_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "side_goal",
+          "cos": 0.752484867561818,
+          "rank": 1
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.6281611769139924,
+          "rank": 2
+        },
+        {
+          "key": "learning_goal",
+          "cos": 0.4414347604177253,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "learning_goal"
+      ]
+    },
+    {
+      "id": "E36",
+      "q": "技能和学习方面的情况",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "skill"
+      ],
+      "allow": [
+        "learning_goal"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "learning_goal",
+          "cos": 0.5797475438128388,
+          "rank": 1
+        },
+        {
+          "key": "skill",
+          "cos": 0.48349486259963687,
+          "rank": 2
+        },
+        {
+          "key": "career_goal",
+          "cos": 0.45277392135208616,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "career_goal"
+      ]
+    },
+    {
+      "id": "E37",
+      "q": "我的个人偏好",
+      "purpose": "RANK",
+      "status": "hit",
+      "rel": [
+        "preference"
+      ],
+      "allow": [
+        "language_preference"
+      ],
+      "forbid": [
+        "major",
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "language_preference",
+          "cos": 0.6037674639415052,
+          "rank": 1
+        },
+        {
+          "key": "preference",
+          "cos": 0.49858085700100857,
+          "rank": 2
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": []
+    },
+    {
+      "id": "E38",
+      "q": "明天会下雨吗",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.344889
+    },
+    {
+      "id": "E39",
+      "q": "123乘以456等于多少",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.366099
+    },
+    {
+      "id": "E40",
+      "q": "地球到月球多远",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.304169
+    },
+    {
+      "id": "E41",
+      "q": "今天心情不太好",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.479671
+    },
+    {
+      "id": "E42",
+      "q": "他喜欢喝什么",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.510868
+    },
+    {
+      "id": "E43",
+      "q": "现在几点了",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.422499
+    },
+    {
+      "id": "E44",
+      "q": "帮我翻译这句话",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.483781
+    },
+    {
+      "id": "E45",
+      "q": "写一首诗",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.432663
+    },
+    {
+      "id": "E46",
+      "q": "这家店服务态度很好",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.457938
+    },
+    {
+      "id": "E47",
+      "q": "推荐几部电影",
+      "purpose": "NEG",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.408596
+    },
+    {
+      "id": "E51",
+      "q": "我是什么专业的？",
+      "purpose": "EDGE",
+      "status": "hit",
+      "rel": [
+        "major"
+      ],
+      "allow": [],
+      "forbid": [
+        "degree",
+        "school",
+        "career_goal",
+        "learning_goal",
+        "side_goal",
+        "preference",
+        "language_preference",
+        "project",
+        "skill",
+        "location",
+        "name"
+      ],
+      "top": [
+        {
+          "key": "degree",
+          "cos": 0.4900739776810148,
+          "rank": 1
+        },
+        {
+          "key": "major",
+          "cos": 0.47498977941631587,
+          "rank": 2
+        },
+        {
+          "key": "school",
+          "cos": 0.4336181211469636,
+          "rank": 3
+        }
+      ],
+      "missing": [],
+      "forbidden_hit": [
+        "degree",
+        "school"
+      ]
+    },
+    {
+      "id": "E52",
+      "q": "明天会下雨吗",
+      "purpose": "EDGE",
+      "status": "n/a(未查询)",
+      "top": [],
+      "max_cos_if_queried": 0.344889
+    }
+  ]
+}

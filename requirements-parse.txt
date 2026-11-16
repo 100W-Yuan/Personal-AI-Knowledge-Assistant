@@ -1,0 +1,10 @@
+# P0-2 文档解析依赖（批次 A）
+#
+# 本项目目前尚无完整的依赖清单（无 requirements.txt / pyproject.toml），
+# 本文件**只声明多格式文档解析新增的两项依赖**，不代表项目全量依赖。
+# 运行项目仍需另行准备 fastapi / sentence-transformers / python-multipart 等。
+#
+# 批次 A 执行期间禁止安装或升级依赖；此文件仅用于固化版本事实。
+
+pypdf==6.16.2
+python-docx==1.2.0

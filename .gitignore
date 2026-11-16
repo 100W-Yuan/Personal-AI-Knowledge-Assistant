@@ -1,0 +1,11 @@
+﻿.env
+.env.*
+!.env.example
+memory.db
+*.db
+__pycache__/
+*.py[cod]
+.backup_r6_5/
+.backup_auth/
+.pytest_cache/
+.vscode/
